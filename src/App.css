@@ -1,38 +1,55 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* STYLE FOR BACKGROUND */
+
+.mainBackgroundContainer {
+  position: relative;
+  object-fit: contain;
+}
+
+.backgroundTextContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  position: absolute;
+  bottom: 40%;
   color: white;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  text-shadow: 1px 1px 10px #000;
 }
 
-.App-link {
-  color: #61dafb;
+.backgroundMovieTitle {
+  font-size: 25.5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (min-width: 540px) {
+  .backgroundMovieTitle {
+    font-size: 32.5px
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.backgroundMovieOverview {
+  font-size: 12.5px;
+}
+
+@media screen and (min-width: 540px) {
+  .backgroundMovieOverview {
+    font-size: 18.5px
   }
 }
