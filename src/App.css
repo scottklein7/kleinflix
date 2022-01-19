@@ -16,7 +16,11 @@ code {
     monospace;
 }
 
-/* STYLE FOR BACKGROUND */
+.App {
+  background-color: rgb(2, 2, 2);
+}
+
+/* --------------- STYLE FOR BACKGROUND --------------- */
 
 .mainBackgroundContainer {
   position: relative;
@@ -54,4 +58,12 @@ code {
   .backgroundMovieOverview {
     font-size: 18.5px
   }
+}
+
+/* --------------- STYLE FOR CONTENT --------------- */
+
+.contentMainContainer {
+  display: flex;
+  overflow-x: scroll;
+  height: 250px;
 }

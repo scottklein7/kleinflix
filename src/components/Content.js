@@ -47,15 +47,134 @@ function Content() {
 
 
     return (
-        <div>
-            {trending.map((trending) => (
-                <img
-                    src={`${base_url}${trending.backdrop_path}`}
-                    alt={trending.name}
-                    key={trending.id} />
+        <>
+            <h1 style={{ color: 'white', paddingTop: '35px', paddingBottom: '15px' }}>Trending Now</h1>
+            <div className='contentMainContainer'>
+                {trending.map((trending) => (
+                    <div className="contentSecondContainer">
+                        <img
+                            src={`${base_url}${trending.backdrop_path || trending.poster_path}`}
+                            alt={trending.name}
+                            key={trending.id}
+                            style={{
+                                maxHeight: '300px',
+                                width: '320px',
+                                marginLeft: '15px'
+                            }} />
 
-            ))}
-        </div>
+                    </div>
+                ))}
+            </div>
+
+            <h1 style={{ color: 'white', paddingTop: '35px', paddingBottom: '15px' }}>Thrillers</h1>
+            <div className='contentMainContainer'>
+                {thriller.map((thriller) => (
+                    <div className="contentSecondContainer">
+                        <img
+                            src={`${base_url}${thriller.backdrop_path || thriller.poster_path}`}
+                            alt={thriller.name}
+                            key={thriller.id}
+                            style={{
+                                maxHeight: '300px',
+                                width: '320px',
+                                marginLeft: '15px'
+                            }} />
+
+                    </div>
+                ))}
+            </div>
+
+            <h1 style={{ color: 'white', paddingTop: '35px', paddingBottom: '15px' }}>Action</h1>
+            <div className='contentMainContainer'>
+                {action.map((action) => (
+                    <div className="contentSecondContainer">
+                        <img
+                            src={`${base_url}${action.backdrop_path || action.poster_path}`}
+                            alt={action.name}
+                            key={action.id}
+                            style={{
+                                maxHeight: '300px',
+                                width: '320px',
+                                marginLeft: '15px'
+                            }} />
+
+                    </div>
+                ))}
+            </div> 
+
+            <h1 style={{ color: 'white', paddingTop: '35px', paddingBottom: '15px' }}>Comedy</h1>
+            <div className='contentMainContainer'>
+                {comedy.map((comedy) => (
+                    <div className="contentSecondContainer">
+                        <img
+                            src={`${base_url}${comedy.backdrop_path || comedy.poster_path}`}
+                            alt={comedy.name}
+                            key={comedy.id}
+                            style={{
+                                maxHeight: '300px',
+                                width: '320px',
+                                marginLeft: '15px'
+                            }} />
+
+                    </div>
+                ))}
+            </div>
+
+            <h1 style={{ color: 'white', paddingTop: '35px', paddingBottom: '15px' }}>War</h1>
+            <div className='contentMainContainer'>
+                {war.map((war) => (
+                    <div className="contentSecondContainer">
+                        <img
+                            src={`${base_url}${war.backdrop_path || war.poster_path}`}
+                            alt={war.name}
+                            key={war.id}
+                            style={{
+                                maxHeight: '300px',
+                                width: '320px',
+                                marginLeft: '15px'
+                            }} />
+
+                    </div>
+                ))}
+            </div>
+
+            <h1 style={{ color: 'white', paddingTop: '35px', paddingBottom: '15px' }}>Documentaries</h1>
+            <div className='contentMainContainer'>
+                {Docs.map((Docs) => (
+                    <div className="contentSecondContainer">
+                        <img
+                            src={`${base_url}${Docs.backdrop_path || Docs.poster_path}`}
+                            alt={Docs.name}
+                            key={Docs.id}
+                            style={{
+                                maxHeight: '300px',
+                                width: '320px',
+                                marginLeft: '15px'
+                            }} />
+
+                    </div>
+                ))}
+            </div>
+
+            <h1 style={{ color: 'white', paddingTop: '35px', paddingBottom: '15px' }}>Animation</h1>
+            <div className='contentMainContainer'>
+                {animation.map((animation) => (
+                    <div className="contentSecondContainer">
+                        <img
+                            src={`${base_url}${animation.backdrop_path || animation.poster_path}`}
+                            alt={animation.name}
+                            key={animation.id}
+                            style={{
+                                maxHeight: '300px',
+                                width: '320px',
+                                marginLeft: '15px'
+                            }} />
+
+                    </div>
+                ))}
+            </div>
+
+        </>
     )
 }
 
