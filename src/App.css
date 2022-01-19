@@ -28,13 +28,15 @@ code {
   flex-direction: column;
   position: absolute;
   bottom: 40%;
-  color: white;
+  color: #fdfdfd;
+  font-family: Helvetica, Arial, sans-serif;
   margin-left: 3rem;
   margin-right: 3rem;
   text-shadow: 1px 1px 10px #000;
 }
 
 .backgroundMovieTitle {
+  margin-bottom: 6px;
   font-size: 25.5px;
 }
 

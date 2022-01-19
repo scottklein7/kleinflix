@@ -21,16 +21,20 @@ function Background() {
 
     const movieImg = `https://image.tmdb.org/t/p/original${background?.backdrop_path}`
 
+    const truncateOverview = (str, cutOffNum) => {
+        return str?.length > cutOffNum ? str.slice(0, cutOffNum -1) + '...' : str
+    }
+    
     return (
         <div className="mainBackgroundContainer">
             <div className="backgroundImgContainer">
                 <img src={movieImg} alt={background.title} style={{
-                    width: '100vw'
+                    width: '100vw',
                 }} />
             </div>
             <div className="backgroundTextContainer">
                 <h1 className='backgroundMovieTitle'>{background?.title || background?.original_title || background?.name}</h1>
-                <p className='backgroundMovieOverview'>{background?.overview}</p>
+                <p className='backgroundMovieOverview'>{truncateOverview(background?.overview, 300)}</p>
             </div>
         </div>
 
