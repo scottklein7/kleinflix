@@ -44,28 +44,48 @@ function Content() {
         fetchMovies()
     }, []);
 
-    const truncateOverview = (str, cutOffNum) => {
+    function truncateOverview(str, cutOffNum) {
         return str?.length > cutOffNum ? str.slice(0, cutOffNum - 1) + '...read more' : str
     }
+
+    function addToList() {
+        <span>Added to list</span>
+    }
+
+
 
 
 
     return (
         <>
-            <h1 style={{ color: 'white', paddingTop: '20px', paddingBottom: '15px', marginLeft: '15px' }}>Trending Now</h1>
+            <h1 style={{ color: 'white' }}>Trending Now</h1>
             <div className='contentMainContainer'>
                 {trending.map((trending) => (
-                    <div className="contentSecondContainer">
+                    <div className="contentSecondContainer" style={{ padding: '12px' }}
+                    >
                         <img
+                            className='contentImg'
                             src={`${base_url}${trending.backdrop_path || trending.poster_path}`}
                             alt={trending.name}
                             key={trending.id}
                             style={{
                                 maxHeight: '300px',
                                 width: '320px',
-                                marginLeft: '15px'
-                            }} />
+                            }}
+                        />
+                        <div className='hiddenText' style={{ color: 'white' }}>
+                            <span style={{ marginBottom: '20px', fontSize: '12px' }}>Rating: {trending.vote_average}</span>
+                            <h2 style={{ marginBottom: '10px', fontSize: '14.5px' }}>{trending?.title || trending?.original_title}</h2>
+                            <p style={{ fontSize: '12px' }}>{truncateOverview(trending?.overview, 150)}</p>
+                            <div style={{ display: 'flex', marginTop: '8px' }}>
+                                <button style={{ width: '2em', border: 'none', display: 'flex', background: 'transparent' }} >
+                                    <img src={'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fadd-1-icon.png&f=1&nofb=1'} alt="addtolistlogo"
+                                        style={{ width: '1.2em' }} />
+                                </button>
+                                <span style={{ fontSize: '11px', marginLeft: '3px' }}>Add to favorites</span>
+                            </div>
 
+                        </div>
                     </div>
                 ))}
             </div>
@@ -73,7 +93,7 @@ function Content() {
             <h1 style={{ color: 'white' }}>Thrillers</h1>
             <div className='contentMainContainer'>
                 {thriller.map((thriller) => (
-                    <div className="contentSecondContainer" style={{padding: '12px'}}
+                    <div className="contentSecondContainer" style={{ padding: '12px' }}
                     >
                         <img
                             className='contentImg'
@@ -84,102 +104,180 @@ function Content() {
                                 maxHeight: '300px',
                                 width: '320px',
                             }}
-                            />
-                        <div className='hiddenText' style={{color: 'white'}}>
-                            <span style={{marginBottom: '10px', fontSize: '12px'}}>Rating: {thriller.vote_average}</span>
-                            <h3 style={{ fontSize: '14px' }}>{thriller?.title || thriller?.original_title}</h3>
-                            <p style={{ fontSize: '12px' }}>{truncateOverview(thriller?.overview, 200)}</p>
+                        />
+                        <div className='hiddenText' style={{ color: 'white' }}>
+                            <span style={{ marginBottom: '20px', fontSize: '12px' }}>Rating: {thriller.vote_average}</span>
+                            <h2 style={{ marginBottom: '10px', fontSize: '14.5px' }}>{thriller?.title || thriller?.original_title}</h2>
+                            <p style={{ fontSize: '12px' }}>{truncateOverview(thriller?.overview, 150)}</p>
+                            <div style={{ display: 'flex', marginTop: '8px' }}>
+                                <button style={{ width: '2em', border: 'none', display: 'flex', background: 'transparent' }} >
+                                    <img src={'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fadd-1-icon.png&f=1&nofb=1'} alt="addtolistlogo"
+                                    style={{ width: '1.2em' }}/>
+                                </button>
+                                <span style={{ fontSize: '11px', marginLeft: '3px' }}>Add to favorites</span>
+                            </div>
+
                         </div>
                     </div>
                 ))}
             </div>
-
-            <h1 style={{ color: 'white', paddingTop: '20px', paddingBottom: '15px', marginLeft: '15px' }}>Action</h1>
+            
+            <h1 style={{ color: 'white' }}>Action</h1>
             <div className='contentMainContainer'>
                 {action.map((action) => (
-                    <div className="contentSecondContainer">
+                    <div className="contentSecondContainer" style={{ padding: '12px' }}
+                    >
                         <img
+                            className='contentImg'
                             src={`${base_url}${action.backdrop_path || action.poster_path}`}
                             alt={action.name}
                             key={action.id}
                             style={{
                                 maxHeight: '300px',
                                 width: '320px',
-                                marginLeft: '15px'
-                            }} />
+                            }}
+                        />
+                        <div className='hiddenText' style={{ color: 'white' }}>
+                            <span style={{ marginBottom: '20px', fontSize: '12px' }}>Rating: {action.vote_average}</span>
+                            <h2 style={{ marginBottom: '10px', fontSize: '14.5px' }}>{action?.title || action?.original_title}</h2>
+                            <p style={{ fontSize: '12px' }}>{truncateOverview(action?.overview, 150)}</p>
+                            <div style={{ display: 'flex', marginTop: '8px' }}>
+                                <button style={{ width: '2em', border: 'none', display: 'flex', background: 'transparent' }} >
+                                    <img src={'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fadd-1-icon.png&f=1&nofb=1'} alt="addtolistlogo"
+                                        style={{ width: '1.2em' }} />
+                                </button>
+                                <span style={{ fontSize: '11px', marginLeft: '3px' }}>Add to favorites</span>
+                            </div>
 
+                        </div>
                     </div>
                 ))}
             </div>
 
-            <h1 style={{ color: 'white', paddingTop: '20px', paddingBottom: '15px', marginLeft: '15px' }}>Comedy</h1>
+            <h1 style={{ color: 'white' }}>Comedy</h1>
             <div className='contentMainContainer'>
                 {comedy.map((comedy) => (
-                    <div className="contentSecondContainer">
+                    <div className="contentSecondContainer" style={{ padding: '12px' }}
+                    >
                         <img
+                            className='contentImg'
                             src={`${base_url}${comedy.backdrop_path || comedy.poster_path}`}
                             alt={comedy.name}
                             key={comedy.id}
                             style={{
                                 maxHeight: '300px',
                                 width: '320px',
-                                marginLeft: '15px'
-                            }} />
+                            }}
+                        />
+                        <div className='hiddenText' style={{ color: 'white' }}>
+                            <span style={{ marginBottom: '20px', fontSize: '12px' }}>Rating: {comedy.vote_average}</span>
+                            <h2 style={{ marginBottom: '10px', fontSize: '14.5px' }}>{comedy?.title || comedy?.original_title}</h2>
+                            <p style={{ fontSize: '12px' }}>{truncateOverview(comedy?.overview, 150)}</p>
+                            <div style={{ display: 'flex', marginTop: '8px' }}>
+                                <button style={{ width: '2em', border: 'none', display: 'flex', background: 'transparent' }} >
+                                    <img src={'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fadd-1-icon.png&f=1&nofb=1'} alt="addtolistlogo"
+                                        style={{ width: '1.2em' }} />
+                                </button>
+                                <span style={{ fontSize: '11px', marginLeft: '3px' }}>Add to favorites</span>
+                            </div>
 
+                        </div>
                     </div>
                 ))}
             </div>
 
-            <h1 style={{ color: 'white', paddingTop: '20px', paddingBottom: '15px', marginLeft: '15px' }}>War</h1>
+            <h1 style={{ color: 'white' }}>War</h1>
             <div className='contentMainContainer'>
                 {war.map((war) => (
-                    <div className="contentSecondContainer">
+                    <div className="contentSecondContainer" style={{ padding: '12px' }}
+                    >
                         <img
+                            className='contentImg'
                             src={`${base_url}${war.backdrop_path || war.poster_path}`}
                             alt={war.name}
                             key={war.id}
                             style={{
                                 maxHeight: '300px',
                                 width: '320px',
-                                marginLeft: '15px'
-                            }} />
+                            }}
+                        />
+                        <div className='hiddenText' style={{ color: 'white' }}>
+                            <span style={{ marginBottom: '20px', fontSize: '12px' }}>Rating: {war.vote_average}</span>
+                            <h2 style={{ marginBottom: '10px', fontSize: '14.5px' }}>{war?.title || war?.original_title}</h2>
+                            <p style={{ fontSize: '12px' }}>{truncateOverview(war?.overview, 150)}</p>
+                            <div style={{ display: 'flex', marginTop: '8px' }}>
+                                <button style={{ width: '2em', border: 'none', display: 'flex', background: 'transparent' }} >
+                                    <img src={'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fadd-1-icon.png&f=1&nofb=1'} alt="addtolistlogo"
+                                        style={{ width: '1.2em' }} />
+                                </button>
+                                <span style={{ fontSize: '11px', marginLeft: '3px' }}>Add to favorites</span>
+                            </div>
 
+                        </div>
                     </div>
                 ))}
             </div>
 
-            <h1 style={{ color: 'white', paddingTop: '20px', paddingBottom: '15px', marginLeft: '15px' }}>Documentaries</h1>
+            <h1 style={{ color: 'white' }}>Documentaries</h1>
             <div className='contentMainContainer'>
                 {Docs.map((Docs) => (
-                    <div className="contentSecondContainer">
+                    <div className="contentSecondContainer" style={{ padding: '12px' }}
+                    >
                         <img
+                            className='contentImg'
                             src={`${base_url}${Docs.backdrop_path || Docs.poster_path}`}
                             alt={Docs.name}
                             key={Docs.id}
                             style={{
                                 maxHeight: '300px',
                                 width: '320px',
-                                marginLeft: '15px'
-                            }} />
+                            }}
+                        />
+                        <div className='hiddenText' style={{ color: 'white' }}>
+                            <span style={{ marginBottom: '20px', fontSize: '12px' }}>Rating: {Docs.vote_average}</span>
+                            <h2 style={{ marginBottom: '10px', fontSize: '14.5px' }}>{Docs?.title || Docs?.original_title}</h2>
+                            <p style={{ fontSize: '12px' }}>{truncateOverview(Docs?.overview, 150)}</p>
+                            <div style={{ display: 'flex', marginTop: '8px' }}>
+                                <button style={{ width: '2em', border: 'none', display: 'flex', background: 'transparent' }} >
+                                    <img src={'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fadd-1-icon.png&f=1&nofb=1'} alt="addtolistlogo"
+                                        style={{ width: '1.2em' }} />
+                                </button>
+                                <span style={{ fontSize: '11px', marginLeft: '3px' }}>Add to favorites</span>
+                            </div>
 
+                        </div>
                     </div>
                 ))}
             </div>
 
-            <h1 style={{ color: 'white', paddingTop: '20px', paddingBottom: '15px', marginLeft: '15px' }}>Animation</h1>
+            <h1 style={{ color: 'white' }}>Animation</h1>
             <div className='contentMainContainer'>
                 {animation.map((animation) => (
-                    <div className="contentSecondContainer">
+                    <div className="contentSecondContainer" style={{ padding: '12px' }}
+                    >
                         <img
+                            className='contentImg'
                             src={`${base_url}${animation.backdrop_path || animation.poster_path}`}
                             alt={animation.name}
                             key={animation.id}
                             style={{
                                 maxHeight: '300px',
                                 width: '320px',
-                                marginLeft: '15px'
-                            }} />
+                            }}
+                        />
+                        <div className='hiddenText' style={{ color: 'white' }}>
+                            <span style={{ marginBottom: '20px', fontSize: '12px' }}>Rating: {animation.vote_average}</span>
+                            <h2 style={{ marginBottom: '10px', fontSize: '14.5px' }}>{animation?.title || animation?.original_title}</h2>
+                            <p style={{ fontSize: '12px' }}>{truncateOverview(animation?.overview, 150)}</p>
+                            <div style={{ display: 'flex', marginTop: '8px' }}>
+                                <button style={{ width: '2em', border: 'none', display: 'flex', background: 'transparent' }} >
+                                    <img src={'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fadd-1-icon.png&f=1&nofb=1'} alt="addtolistlogo"
+                                        style={{ width: '1.2em' }} />
+                                </button>
+                                <span style={{ fontSize: '11px', marginLeft: '3px' }}>Add to favorites</span>
+                            </div>
 
+                        </div>
                     </div>
                 ))}
             </div>
