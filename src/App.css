@@ -67,3 +67,41 @@ code {
   overflow-x: scroll;
   height: 250px;
 }
+
+.contentMainContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.contentSecondContainer {
+  transition: transform .4s ease .1s;
+  position: relative;
+  object-fit: contain;
+}
+
+.contentSecondContainer:hover, .contentSecondContainer:hover .hiddenText  {
+  transform: scale(1.1);
+  opacity: 1;
+  visibility: visible;
+}
+
+.hiddenText {
+  font-weight: bolder;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 35%;
+  left: 10%;
+  right: 10%;
+  visibility: hidden;
+  text-shadow: 1px 1px 20px #000;
+  justify-content: center;
+  transition: transform .4s ease .1s;
+  text-shadow: 2px 2px 10px #000;
+}
+
+
+
+
+
+
+

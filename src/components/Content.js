@@ -10,6 +10,7 @@ function Content() {
     const [war, setWar] = useState([]);
     const [Docs, setDocs] = useState([]);
     const [animation, setAnimation] = useState([]);
+    const [showOverview, setShowOverview] = useState(false);
 
     const base_url = "https://image.tmdb.org/t/p/original/"
 
@@ -43,12 +44,15 @@ function Content() {
         fetchMovies()
     }, []);
 
+    const truncateOverview = (str, cutOffNum) => {
+        return str?.length > cutOffNum ? str.slice(0, cutOffNum - 1) + '...read more' : str
+    }
 
 
 
     return (
         <>
-            <h1 style={{ color: 'white', paddingTop: '35px', paddingBottom: '15px' }}>Trending Now</h1>
+            <h1 style={{ color: 'white', paddingTop: '20px', paddingBottom: '15px', marginLeft: '15px' }}>Trending Now</h1>
             <div className='contentMainContainer'>
                 {trending.map((trending) => (
                     <div className="contentSecondContainer">
@@ -66,25 +70,31 @@ function Content() {
                 ))}
             </div>
 
-            <h1 style={{ color: 'white', paddingTop: '35px', paddingBottom: '15px' }}>Thrillers</h1>
+            <h1 style={{ color: 'white' }}>Thrillers</h1>
             <div className='contentMainContainer'>
                 {thriller.map((thriller) => (
-                    <div className="contentSecondContainer">
+                    <div className="contentSecondContainer" style={{padding: '12px'}}
+                    >
                         <img
+                            className='contentImg'
                             src={`${base_url}${thriller.backdrop_path || thriller.poster_path}`}
                             alt={thriller.name}
                             key={thriller.id}
                             style={{
                                 maxHeight: '300px',
                                 width: '320px',
-                                marginLeft: '15px'
-                            }} />
-
+                            }}
+                            />
+                        <div className='hiddenText' style={{color: 'white'}}>
+                            <span style={{marginBottom: '10px', fontSize: '12px'}}>Rating: {thriller.vote_average}</span>
+                            <h3 style={{ fontSize: '14px' }}>{thriller?.title || thriller?.original_title}</h3>
+                            <p style={{ fontSize: '12px' }}>{truncateOverview(thriller?.overview, 200)}</p>
+                        </div>
                     </div>
                 ))}
             </div>
 
-            <h1 style={{ color: 'white', paddingTop: '35px', paddingBottom: '15px' }}>Action</h1>
+            <h1 style={{ color: 'white', paddingTop: '20px', paddingBottom: '15px', marginLeft: '15px' }}>Action</h1>
             <div className='contentMainContainer'>
                 {action.map((action) => (
                     <div className="contentSecondContainer">
@@ -100,9 +110,9 @@ function Content() {
 
                     </div>
                 ))}
-            </div> 
+            </div>
 
-            <h1 style={{ color: 'white', paddingTop: '35px', paddingBottom: '15px' }}>Comedy</h1>
+            <h1 style={{ color: 'white', paddingTop: '20px', paddingBottom: '15px', marginLeft: '15px' }}>Comedy</h1>
             <div className='contentMainContainer'>
                 {comedy.map((comedy) => (
                     <div className="contentSecondContainer">
@@ -120,7 +130,7 @@ function Content() {
                 ))}
             </div>
 
-            <h1 style={{ color: 'white', paddingTop: '35px', paddingBottom: '15px' }}>War</h1>
+            <h1 style={{ color: 'white', paddingTop: '20px', paddingBottom: '15px', marginLeft: '15px' }}>War</h1>
             <div className='contentMainContainer'>
                 {war.map((war) => (
                     <div className="contentSecondContainer">
@@ -138,7 +148,7 @@ function Content() {
                 ))}
             </div>
 
-            <h1 style={{ color: 'white', paddingTop: '35px', paddingBottom: '15px' }}>Documentaries</h1>
+            <h1 style={{ color: 'white', paddingTop: '20px', paddingBottom: '15px', marginLeft: '15px' }}>Documentaries</h1>
             <div className='contentMainContainer'>
                 {Docs.map((Docs) => (
                     <div className="contentSecondContainer">
@@ -156,7 +166,7 @@ function Content() {
                 ))}
             </div>
 
-            <h1 style={{ color: 'white', paddingTop: '35px', paddingBottom: '15px' }}>Animation</h1>
+            <h1 style={{ color: 'white', paddingTop: '20px', paddingBottom: '15px', marginLeft: '15px' }}>Animation</h1>
             <div className='contentMainContainer'>
                 {animation.map((animation) => (
                     <div className="contentSecondContainer">
