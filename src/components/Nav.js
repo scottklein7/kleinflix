@@ -1,13 +1,16 @@
 import React from 'react'
 import { Link, Switch } from 'react-router-dom'
+import Typewriter from 'typewriter-effect';
+
 
 
 function Nav() {
+
     return (
         <>
             <div className='navContainer' style={{
                 height: '60px',
-                background: '#000'
+                background: '#000',
             }}>
                 <div className='navItems' style={{
                     display: 'flex',
@@ -22,9 +25,16 @@ function Nav() {
                                 cursor: 'pointer'
                             }} />
                     </Link>
-                    <Link to='/favorites'>
-                        <div className="favorites">
-                            Favorites
+                    <Link to='/favorites' style={{ textDecoration: 'none' }}>
+                        <div className="favoritesNavDiv">
+                            <Typewriter
+                                options={{
+                                    strings: ['SEE', 'Your', 'Favorites'],
+                                    autoStart: true,
+                                    loop: true,
+                                    cursorClassName: 'Typewriter__cursor'
+                                }}
+                            />
                         </div>
                     </Link>
                     <Link to='/search'>
