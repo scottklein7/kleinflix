@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
+import { IoStarSharp, IoAddCircle } from 'react-icons/io5';
 import axios from '../axios'
 import movieReq from '../MovieRequests'
+
 
 function Content() {
     const [trending, setTrending] = useState([]);
@@ -65,26 +67,28 @@ function Content() {
                     >
                         <img
                             className='contentImg'
-                            src={`${base_url}${trending.backdrop_path || trending.poster_path}`}
-                            alt={trending.name}
-                            key={trending.id}
+                            src={`${base_url}${trending?.backdrop_path || trending?.poster_path}`}
+                            alt={trending?.name}
+                            key={trending?.id}
                             style={{
                                 maxHeight: '300px',
                                 width: '320px',
                             }}
                         />
                         <div className='hiddenText' style={{ color: 'white' }}>
-                            <span style={{ marginBottom: '20px', fontSize: '12px' }}>Rating: {trending.vote_average}</span>
-                            <h2 style={{ marginBottom: '10px', fontSize: '14.5px' }}>{trending?.title || trending?.original_title}</h2>
+                            <div className='ratingDiv' style={{ display: 'flex', alignItems: 'center' }}>
+                                <img src={'http://www.userlogos.org/files/logos/jumpordie/imdb-iphone.png'} alt="imbdlogo" style={{ width: '2.6em' }} />
+                                <span style={{ fontSize: '12.5px' }}>{trending?.vote_average} <IoStarSharp /></span>
+                            </div>
+                            <h2 style={{ marginBottom: '10px', fontSize: '14.5px' }}>{trending?.title || trending?.original_title || trending?.original_name}</h2>
                             <p style={{ fontSize: '12px' }}>{truncateOverview(trending?.overview, 150)}</p>
-                            <div style={{ display: 'flex', marginTop: '8px' }}>
+                            <div style={{ display: 'flex', position: 'fixed', bottom: '10%' }}>
                                 <button style={{ width: '2em', border: 'none', display: 'flex', background: 'transparent' }} >
                                     <img src={'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fadd-1-icon.png&f=1&nofb=1'} alt="addtolistlogo"
                                         style={{ width: '1.2em' }} />
                                 </button>
                                 <span style={{ fontSize: '11px', marginLeft: '3px' }}>Add to favorites</span>
                             </div>
-
                         </div>
                     </div>
                 ))}
@@ -106,14 +110,14 @@ function Content() {
                             }}
                         />
                         <div className='hiddenText' style={{ color: 'white' }}>
-                            <span style={{ marginBottom: '20px', fontSize: '12px' }}>Rating: {thriller.vote_average}</span>
+                            <div className='ratingDiv' style={{ display: 'flex', alignItems: 'center' }}>
+                                <img src={'http://www.userlogos.org/files/logos/jumpordie/imdb-iphone.png'} alt="imbdlogo" style={{ width: '2.6em' }} />
+                                <span style={{ fontSize: '12.5px' }}>{thriller?.vote_average} <IoStarSharp /></span>
+                            </div>
                             <h2 style={{ marginBottom: '10px', fontSize: '14.5px' }}>{thriller?.title || thriller?.original_title}</h2>
                             <p style={{ fontSize: '12px' }}>{truncateOverview(thriller?.overview, 150)}</p>
                             <div style={{ display: 'flex', marginTop: '8px' }}>
-                                <button style={{ width: '2em', border: 'none', display: 'flex', background: 'transparent' }} >
-                                    <img src={'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fadd-1-icon.png&f=1&nofb=1'} alt="addtolistlogo"
-                                    style={{ width: '1.2em' }}/>
-                                </button>
+                                <IoAddCircle />
                                 <span style={{ fontSize: '11px', marginLeft: '3px' }}>Add to favorites</span>
                             </div>
 
@@ -121,7 +125,7 @@ function Content() {
                     </div>
                 ))}
             </div>
-            
+
             <h1 style={{ color: 'white' }}>Action</h1>
             <div className='contentMainContainer'>
                 {action.map((action) => (
@@ -138,7 +142,10 @@ function Content() {
                             }}
                         />
                         <div className='hiddenText' style={{ color: 'white' }}>
-                            <span style={{ marginBottom: '20px', fontSize: '12px' }}>Rating: {action.vote_average}</span>
+                            <div className='ratingDiv' style={{ display: 'flex', alignItems: 'center' }}>
+                                <img src={'http://www.userlogos.org/files/logos/jumpordie/imdb-iphone.png'} alt="imbdlogo" style={{ width: '2.6em' }} />
+                                <span style={{ fontSize: '12.5px' }}>{action?.vote_average} <IoStarSharp /></span>
+                            </div>
                             <h2 style={{ marginBottom: '10px', fontSize: '14.5px' }}>{action?.title || action?.original_title}</h2>
                             <p style={{ fontSize: '12px' }}>{truncateOverview(action?.overview, 150)}</p>
                             <div style={{ display: 'flex', marginTop: '8px' }}>
@@ -170,7 +177,10 @@ function Content() {
                             }}
                         />
                         <div className='hiddenText' style={{ color: 'white' }}>
-                            <span style={{ marginBottom: '20px', fontSize: '12px' }}>Rating: {comedy.vote_average}</span>
+                            <div className='ratingDiv' style={{ display: 'flex', alignItems: 'center' }}>
+                                <img src={'http://www.userlogos.org/files/logos/jumpordie/imdb-iphone.png'} alt="imbdlogo" style={{ width: '2.6em' }} />
+                                <span style={{ fontSize: '12.5px' }}>{comedy?.vote_average} <IoStarSharp /></span>
+                            </div>
                             <h2 style={{ marginBottom: '10px', fontSize: '14.5px' }}>{comedy?.title || comedy?.original_title}</h2>
                             <p style={{ fontSize: '12px' }}>{truncateOverview(comedy?.overview, 150)}</p>
                             <div style={{ display: 'flex', marginTop: '8px' }}>
@@ -202,7 +212,10 @@ function Content() {
                             }}
                         />
                         <div className='hiddenText' style={{ color: 'white' }}>
-                            <span style={{ marginBottom: '20px', fontSize: '12px' }}>Rating: {war.vote_average}</span>
+                            <div className='ratingDiv' style={{ display: 'flex', alignItems: 'center' }}>
+                                <img src={'http://www.userlogos.org/files/logos/jumpordie/imdb-iphone.png'} alt="imbdlogo" style={{ width: '2.6em' }} />
+                                <span style={{ fontSize: '12.5px' }}>{war?.vote_average} <IoStarSharp /></span>
+                            </div>
                             <h2 style={{ marginBottom: '10px', fontSize: '14.5px' }}>{war?.title || war?.original_title}</h2>
                             <p style={{ fontSize: '12px' }}>{truncateOverview(war?.overview, 150)}</p>
                             <div style={{ display: 'flex', marginTop: '8px' }}>
@@ -234,7 +247,10 @@ function Content() {
                             }}
                         />
                         <div className='hiddenText' style={{ color: 'white' }}>
-                            <span style={{ marginBottom: '20px', fontSize: '12px' }}>Rating: {Docs.vote_average}</span>
+                            <div className='ratingDiv' style={{ display: 'flex', alignItems: 'center' }}>
+                                <img src={'http://www.userlogos.org/files/logos/jumpordie/imdb-iphone.png'} alt="imbdlogo" style={{ width: '2.6em' }} />
+                                <span style={{ fontSize: '12.5px' }}>{Docs?.vote_average} <IoStarSharp /></span>
+                            </div>
                             <h2 style={{ marginBottom: '10px', fontSize: '14.5px' }}>{Docs?.title || Docs?.original_title}</h2>
                             <p style={{ fontSize: '12px' }}>{truncateOverview(Docs?.overview, 150)}</p>
                             <div style={{ display: 'flex', marginTop: '8px' }}>
@@ -266,8 +282,11 @@ function Content() {
                             }}
                         />
                         <div className='hiddenText' style={{ color: 'white' }}>
-                            <span style={{ marginBottom: '20px', fontSize: '12px' }}>Rating: {animation.vote_average}</span>
-                            <h2 style={{ marginBottom: '10px', fontSize: '14.5px' }}>{animation?.title || animation?.original_title}</h2>
+                            <div className='ratingDiv' style={{ display: 'flex', alignItems: 'center' }}>
+                                <img src={'http://www.userlogos.org/files/logos/jumpordie/imdb-iphone.png'} alt="imbdlogo" style={{ width: '2.6em' }} />
+                                <span style={{ fontSize: '12.5px' }}>{animation?.vote_average} <IoStarSharp /></span>
+                            </div>
+                            <h2 style={{ marginBottom: '2.5px', fontSize: '14.5px' }}>{animation?.title || animation?.original_title}</h2>
                             <p style={{ fontSize: '12px' }}>{truncateOverview(animation?.overview, 150)}</p>
                             <div style={{ display: 'flex', marginTop: '8px' }}>
                                 <button style={{ width: '2em', border: 'none', display: 'flex', background: 'transparent' }} >

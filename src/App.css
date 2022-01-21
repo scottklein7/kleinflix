@@ -65,6 +65,7 @@ code {
 .contentMainContainer {
   display: flex;
   overflow-x: scroll;
+  overflow-y: hidden;
   height: 250px;
 }
 
@@ -78,23 +79,22 @@ code {
   object-fit: contain;
 }
 
-.contentSecondContainer:hover, .contentSecondContainer:hover .hiddenText  {
+.contentSecondContainer:hover,
+.contentSecondContainer:hover .hiddenText {
   transform: scale(1.1);
   visibility: visible;
-  background: rgba(48, 41, 41, 0.11);
   cursor: pointer;
 }
 
 .hiddenText {
-  font-weight: bolder;
   display: flex;
   flex-direction: column;
   position: absolute;
+  background: rgba(48, 41, 41, 0.5);
   bottom: 20%;
   left: 9%;
   right: 8%;
   visibility: hidden;
-  text-shadow: 1px 1px 20px #000;
   justify-content: center;
   transition: transform .4s ease .1s;
   text-shadow: 2px 2px 10px #000;
@@ -102,10 +102,21 @@ code {
   width: 280px;
 }
 
+.ratingDiv {
+  position: fixed;
+  bottom: 83.5%;
+  font-weight: bolder;
+  right: 50%;
+  width: 150px;
+  color: rgb(245, 209, 7);
+}
 
-
-
-
-
-
+/* .addToFavBtn {
+  width: 1.3em;
+  height: 1.3em;
+  background-image: url(https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fadd-1-icon.png&f=1&nofb=1);
+  background-size: 1.3em;
+  border-radius: 20px;
+  border: transparent;
+} */
 
