@@ -1,30 +1,17 @@
-import React from 'react'
+import { React, useState } from 'react'
+import Background from '../components/Background';
+import Content from '../components/Content';
+import axios from '../axios'
 
-function index() {
+
+function Index() {
+    
     return (
-        <div>
-            {/* NAV BAR WILL GO HERE */}
-
-            {/* THE BACKROUND IMG WILL GO HERE */}
-
-            {/* TRENDING SHOWS/MOVIES WILL GO HERE */}
-
-            {/* THRILLER SHOWS/MOVIES WILL GO HERE */}
-
-            {/* ACTION SHOWS/MOVIES WILL GO HERE */}
-
-            {/* COMEDY SHOWS/MOVIES WILL GO HERE */}
-
-            {/* WAR SHOWS/MOVIES WILL GO HERE */}
-
-            {/* DOCUMENTARIES SHOWS/MOVIES WILL GO HERE */}
-
-            {/* ANIMATION SHOWS/MOVIES WILL GO HERE */}
-
-            {/* FOOTER WILL GO HERE */}
-
+        <div className='App'>
+            < Background />
+            < Content />
         </div>
     )
 }
 
-export default index
+export default Index

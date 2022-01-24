@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { IoStarSharp, IoAddCircle } from 'react-icons/io5';
+import { Link } from 'react-router-dom'
 import axios from '../axios'
 import movieReq from '../MovieRequests'
 
 
-function Content() {
+function Content({ getMovie, posterData }) {
     const [trending, setTrending] = useState([]);
     const [thriller, setThriller] = useState([]);
     const [action, setAction] = useState([]);
@@ -12,7 +13,6 @@ function Content() {
     const [war, setWar] = useState([]);
     const [Docs, setDocs] = useState([]);
     const [animation, setAnimation] = useState([]);
-    const [showOverview, setShowOverview] = useState(false);
 
     const base_url = "https://image.tmdb.org/t/p/original/"
 
@@ -59,8 +59,8 @@ function Content() {
             <h1 className='contentGenereHeader'>Trending Now</h1>
             <div className='contentMainContainer'>
                 {trending.map((trending) => (
-                    <div className="contentSecondContainer" style={{ padding: '12px' }}
-                    >
+                     <Link to={{ pathname: `/show/${trending.id}`, state: { trending } }}>
+                    <div className="contentSecondContainer" style={{ padding: '12px' }}>
                         <img
                             className='contentImg'
                             src={`${base_url}${trending?.backdrop_path || trending?.poster_path}`}
@@ -87,6 +87,7 @@ function Content() {
                             </div>
                         </div>
                     </div>
+                    </Link>
                 ))}
             </div>
 

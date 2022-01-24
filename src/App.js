@@ -1,15 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
-import Background from './components/Background';
-import Nav from './components/Nav';
-import Content from './components/Content';
+import { Route, Switch } from 'react-router-dom'
+import Index from './pages/Index';
+import ShowMovie from './pages/ShowMovie';
+import Nav from './components/Nav'
 
 function App() {
   return (
     <div className="App">
       < Nav />
-      < Background />
-      < Content />
+
+      <Switch>
+        <Route exact path='/' >
+          <Index />
+        </Route>
+       <Route
+          exact path="/show/:id"
+          render={(routerProps) => <ShowMovie {...routerProps}
+          />}
+        />
+      </Switch>
+
     </div>
   );
 }
