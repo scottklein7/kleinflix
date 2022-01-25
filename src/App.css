@@ -147,9 +147,45 @@ code {
 
 .backgroundDiv {
   background-size: cover;
-  background-position: center center;
-  height: 100vh;
+  background-position: center center; 
+  background-repeat: no-repeat;
   position: relative;
   object-fit: contain;
   width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.showMovieMainDiv {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50;
+  left: 5%;
+  right: 5%;
+  align-items: center;
+  height: 100%;
+  height: 570px;
+  background: rgba(7, 7, 7, 0.75);
+
+}
+
+.showMovieSecondPosterDiv {
+  width: 360px;
+  height: 570px;
+  filter: contrast(115%);
+}
+
+.showMovieInfoDiv {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  line-height: 1.15;
+}
+
+.showMovieRatingDiv {
+  display: flex;
+  align-items: center;
+
 }
