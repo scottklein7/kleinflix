@@ -27,7 +27,7 @@ code {
 
 
 .favoritesNavDiv {
-  color: rgb(59, 192, 59);
+  color: #10B174;
   font-family: 'Press Start 2P';
   font-size: 13px;
   font-weight: bolder;
@@ -49,7 +49,7 @@ code {
   flex-direction: column;
   position: absolute;
   bottom: 40%;
-  color: rgb(104, 158, 104);
+  color: #10B174;
   margin-left: 3rem;
   margin-right: 3rem;
   text-shadow: 1px 1px 10px #000;
@@ -168,7 +168,6 @@ code {
   height: 100%;
   height: 570px;
   background: rgba(7, 7, 7, 0.75);
-
 }
 
 .showMovieSecondPosterDiv {
@@ -182,11 +181,16 @@ code {
   flex-direction: column;
   margin-left: 10px;
   line-height: 1.15;
+  font-size: 13.5px;
+  margin-top: 30px;
 }
 
 .showMovieRatingDiv {
   display: flex;
   align-items: center;
+  position: absolute;
+  bottom: 90%;
+  left: 41%;
 }
 
 .showCastMainDiv {
@@ -224,3 +228,23 @@ code {
   visibility: visible;
   cursor: pointer;
 }
+
+.showMovieNetworkDiv {
+  display: flex;
+  align-items: center;
+}
+
+.networkLogo {
+  background-color: white;
+  border-radius: 5px;
+  width: 45px;
+  margin-left: 7px;
+  transition: transform .4s ease .1s;
+  cursor: pointer;
+}
+
+.networkLogo:hover {
+  transform: scale(1.5);
+}
+
+
