@@ -147,7 +147,7 @@ code {
 
 .backgroundDiv {
   background-size: cover;
-  background-position: center center; 
+  background-position: center center;
   background-repeat: no-repeat;
   position: relative;
   object-fit: contain;
@@ -211,7 +211,7 @@ code {
   flex-direction: column;
   position: absolute;
   background: rgba(7, 7, 7, 0.5);
-  height: 120px ;
+  height: 120px;
   text-shadow: 2px 2px 10px #000;
   font-size: 7px;
   line-height: 1.9;
@@ -247,4 +247,46 @@ code {
   transform: scale(1.5);
 }
 
+/* --------------- STYLE FOR TRAILER --------------- */
 
+
+.setPlay {
+  position: relative;
+  bottom: 300%;
+  
+  width: 50px;
+  /* visibility: hidden; */
+  transition: transform .4s ease .1s;
+}
+
+.playTrailerBtn,
+.youtubeCloseBtn {
+  display: flex;
+  background: transparent;
+  width: 50px;
+  border: 1px solid white;
+  border-radius: 10px;
+  transition: transform .4s ease .1s;
+  cursor: pointer;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5)
+}
+
+.showMoviePosterDiv:hover .setPlay {
+  visibility: visible;
+  transform: scale(1.5);
+}
+
+.youtubeTrailer {
+  position: absolute;
+  top: 79%;
+}
+
+.youtubeCloseBtn {
+  position: absolute;
+  bottom: 10%;
+}
+
+.youtubeIcons {
+  color: white;
+  font-size: 50px;
+}

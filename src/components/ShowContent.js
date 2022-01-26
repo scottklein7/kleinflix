@@ -1,37 +1,44 @@
-import { React } from 'react';
+import { React, useState, useEffect } from 'react';
 import { IoStarSharp } from 'react-icons/io5';
 import ShowCast from './ShowCast';
+import Trailer from './Trailer';
 
 
 export default function ShowContent(props) {
-    const { mediaType, movie, backgroundUrl, posterUrl } = props
+    const { movie, backgroundUrl, posterUrl, mediaType, id } = props
     const networkUrl = 'https://image.tmdb.org/t/p/w92'
-
 
     return (
         <div className='backgroundDiv' style={{ color: '#10B174', background: `url(${backgroundUrl}${movie?.backdrop_path})` }}>
             {mediaType === 'movie' ?
-                <div className="showMovieMainDiv">
-                    <div>
-                        <img className="showMovieSecondPosterDiv" src={`${posterUrl}${movie?.poster_path}`} alt={movie?.id} />
-                    </div>
-                    <div className="showMovieInfoDiv">
-                        <div className="showMovieRatingDiv">
-                            <img src="http://www.userlogos.org/files/logos/jumpordie/imdb-iphone.png" alt="imbdrating" style={{ width: '4.6em' }} />
-                            <span>{movie?.vote_average}<IoStarSharp style={{ color: 'gold' }} /></span><br />
+                <>
+                    <Trailer
+                        id={id}
+                        mediaType={mediaType}
+                    />
+                    <div className="showMovieMainDiv">
+                        <div className='showMoviePosterDiv'>
+                            <img className="showMovieSecondPosterDiv" src={`${posterUrl}${movie?.poster_path}`} alt={movie?.id} />
                         </div>
-                        <h1>{movie?.title || movie?.original_title || movie?.original_name}</h1><br />
-                        <p style={{ fontSize: '11px' }}>{movie?.overview}</p><br />
-                        <span><b>Runtime</b>: {movie?.runtime} Minutes</span><br />
-                        <span><b>Revenue</b>: ${movie?.revenue}</span><br />
-                        <span><b>Release Date</b>: {movie?.release_date}</span><br />
-                        <div className="showCastMainDiv">
-                            <ShowCast
-                                movie={movie}
-                            />
+                        <div className="showMovieInfoDiv">
+                            <div className="showMovieRatingDiv">
+                                <img src="http://www.userlogos.org/files/logos/jumpordie/imdb-iphone.png" alt="imbdrating" style={{ width: '4.6em' }} />
+                                <span>{movie?.vote_average}<IoStarSharp style={{ color: 'gold' }} /></span><br />
+                            </div>
+                            <h1>{movie?.title || movie?.original_title || movie?.original_name}</h1><br />
+                            <p style={{ fontSize: '11px' }}>{movie?.overview}</p><br />
+                            <span><b>Runtime</b>: {movie?.runtime} Minutes</span><br />
+                            <span><b>Revenue</b>: ${movie?.revenue}</span><br />
+                            <span><b>Release Date</b>: {movie?.release_date}</span><br />
+                            <div className="showCastMainDiv">
+                                <ShowCast
+                                    movie={movie}
+                                />
+                            </div>
                         </div>
+
                     </div>
-                </div> :
+                </> :
 
                 <div className="showMovieMainDiv">
                     <div>
