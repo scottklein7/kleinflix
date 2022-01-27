@@ -5,18 +5,16 @@ import axios from '../axios';
 
 
 function SearchComp(props) {
-  const { API_KEY, movieReq, discoverMovie } = props
+  const { API_KEY, searchReq, discoverContent } = props
   const [search, setSearch] = useState('');
   const [movie, setMovie] = useState(null);
   // https://api.themoviedb.org/3/search/movie?api_key=3c73026aded75f276f28e49aaaa8cf92&language=en-US&page=1&query=batman
-
-
   const base_url = "https://image.tmdb.org/t/p/original/"
 
   useEffect(() => {
     async function handleSearchChange() {
       try {
-        const res = await axios.get(`${discoverMovie}`)
+        const res = await axios.get(`${discoverContent}`)
         setMovie(res.data.results)
       } catch {
         throw Error('wait')
@@ -31,7 +29,7 @@ function SearchComp(props) {
   async function handleSearchChange(evt) {
     evt.preventDefault()
     try {
-      const res = await axios.get(`${movieReq}&query=${search}`)
+      const res = await axios.get(`${searchReq}&query=${search}`)
       console.log(res.data.results)
       setMovie(res.data.results)
     } catch {
@@ -43,7 +41,7 @@ function SearchComp(props) {
 
   async function handleSumbit(evt) {
     evt.preventDefault()
-    const res = await axios.get(`${movieReq}&query=${search}`)
+    const res = await axios.get(`${searchReq}&query=${search}`)
     console.log(res.data.results, 'dattttta')
     setSearch('')
   }
@@ -67,6 +65,8 @@ function SearchComp(props) {
           </form>
           <Link to={{ pathname: `/search/tvshows` }} >
             Search Tv Shows
+          </Link> <Link to={{ pathname: `/search` }} >
+            Search Movies
           </Link>
         </div>
       </header>
