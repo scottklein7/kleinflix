@@ -113,9 +113,9 @@ code {
   flex-direction: column;
   position: absolute;
   background: rgba(7, 7, 7, 0.5);
-  bottom: 20%;
+  bottom: 2%;
   left: 9%;
-  right: 8%;
+  right: 9%;
   visibility: hidden;
   justify-content: center;
   transition: transform .4s ease .1s;
@@ -144,6 +144,7 @@ code {
   border: transparent;
 } */
 
+/* --------------- STYLE FOR SHOWMOVIE --------------- */
 
 .backgroundDiv {
   background-size: cover;
@@ -159,30 +160,68 @@ code {
 
 .showMovieMainDiv {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   position: absolute;
-  top: 50;
   left: 5%;
   right: 5%;
   align-items: center;
   height: 100%;
-  height: 570px;
+  height: 790px;
   background: rgba(7, 7, 7, 0.75);
 }
 
-.showMovieSecondPosterDiv {
-  width: 360px;
-  height: 570px;
+@media screen and (min-width: 840px) {
+  .showMovieMainDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    top: 50;
+    left: 5%;
+    right: 5%;
+    align-items: center;
+    height: 100%;
+    height: 570px;
+    background: rgba(7, 7, 7, 0.75);
+  }
+}
+
+.showMovieSecondPosterImg {
+  width: 250px;
+  height: 350px;
   filter: contrast(115%);
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 840px) {
+  .showMovieSecondPosterImg {
+    width: 360px;
+    height: 570px;
+    filter: contrast(115%);
+    margin-top: 0px;
+
+  }
 }
 
 .showMovieInfoDiv {
   display: flex;
   flex-direction: column;
+  text-align: center;
   margin-left: 10px;
   line-height: 1.15;
-  font-size: 13.5px;
+  font-size: 10.5px;
   margin-top: 30px;
+}
+
+@media screen and (min-width: 840px) {
+  .showMovieInfoDiv {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    line-height: 1.15;
+    font-size: 13.5px;
+    margin-top: 30px;
+  }
 }
 
 .showMovieRatingDiv {
@@ -190,12 +229,31 @@ code {
   align-items: center;
   position: absolute;
   bottom: 90%;
-  left: 41%;
+  font-size: 17px;
 }
+
+@media screen and (max-width: 840px) {
+  .showMovieRatingDiv {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 50%;
+    font-size: 15px;
+  }
+}
+
+.showMovieOverviewP {
+  font-size: 11.5px;
+}
+
+/* --------------- STYLE FOR SHOWCAST --------------- */
 
 .showCastMainDiv {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
+  position: relative;
+  margin-top: 10px;
+
 }
 
 .showCastImgDiv {
@@ -204,6 +262,10 @@ code {
   position: relative;
   justify-content: center;
   margin-left: 20px;
+}
+
+.showCastImg {
+  width: 70px;
 }
 
 .castTextDiv {
@@ -247,17 +309,43 @@ code {
   transform: scale(1.5);
 }
 
+.playTrailerBtnMoviePoster {
+  display: flex;
+  position: relative;
+  bottom: 0px;
+  right: 210px;
+  background: transparent;
+  width: 50px;
+  border: 1px solid white;
+  border-radius: 10px;
+  transition: transform .4s ease .1s;
+  cursor: pointer;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5)
+}
+
 /* --------------- STYLE FOR TRAILER --------------- */
-
-
 .setPlay {
   position: relative;
-  bottom: 300%;
-  
+  top: 320px;
+  left: 400%;
   width: 50px;
-  /* visibility: hidden; */
   transition: transform .4s ease .1s;
 }
+
+@media screen and (max-width: 840px) {
+  .setPlay {
+    top: 450px;
+    left: 700%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .setPlay {
+    top: 450px;
+    left: 500%;
+  }
+}
+
 
 .playTrailerBtn,
 .youtubeCloseBtn {
@@ -271,19 +359,31 @@ code {
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5)
 }
 
-.showMoviePosterDiv:hover .setPlay {
-  visibility: visible;
-  transform: scale(1.5);
-}
-
 .youtubeTrailer {
   position: absolute;
-  top: 79%;
+  top: 92%;
 }
+
+@media screen and (min-width: 840px) {
+  .youtubeTrailer {
+    position: absolute;
+    top: 82%;
+  }
+}
+
 
 .youtubeCloseBtn {
   position: absolute;
-  bottom: 10%;
+  top: 100%;
+  left: 2%;
+}
+
+@media screen and (min-width: 840px) {
+  .youtubeCloseBtn {
+    position: absolute;
+    top: 90%;
+    left: 2%;
+  }
 }
 
 .youtubeIcons {

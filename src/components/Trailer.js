@@ -42,6 +42,7 @@ function Trailer({ id, mediaType }) {
                                     iv_load_policy: 0,
                                     modestbranding: 0,
                                     rel: 0,
+                                    showinfo: 0,
 
                                 },
                             }
