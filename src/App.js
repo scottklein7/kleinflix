@@ -4,6 +4,7 @@ import Index from './pages/Index';
 import ShowMovie from './pages/ShowMovie';
 import Nav from './components/Nav'
 import Search from './pages/Search';
+import SearchTvShows from './pages/SearchTvShows';
 
 function App() {
   return (
@@ -20,9 +21,13 @@ function App() {
           />}
         />
       </Switch>
-      <Route>
+      <Route exact path='/search'>
         <Search />
       </Route>
+      <Route path='/search/tvshows'>
+        <SearchTvShows />
+      </Route>
+
 
     </div>
   );

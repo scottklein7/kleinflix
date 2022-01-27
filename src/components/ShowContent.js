@@ -35,7 +35,6 @@ export default function ShowContent(props) {
                             <h1>{movie?.title || movie?.original_title || movie?.original_name}</h1><br />
                             <div className="showMovieOverview">
                             <p className='showMovieOverviewP'>{movie?.overview}</p>
-                            {/* <p className='showMovieOverviewHidden'>{movie?.overview}</p> */}
                             </div><br />
                             <span><b>Runtime</b>: {movie?.runtime} Minutes</span><br />
                             <span><b>Revenue</b>: ${movie?.revenue}</span><br />

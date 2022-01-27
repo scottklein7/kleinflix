@@ -99,6 +99,7 @@ code {
   transition: transform .4s ease .1s;
   position: relative;
   object-fit: contain;
+  padding: 12px;
 }
 
 .contentSecondContainer:hover,
@@ -106,6 +107,40 @@ code {
   transform: scale(1.1);
   visibility: visible;
   cursor: pointer;
+}
+
+.contentImg {
+  max-height: 180px;
+  width: 320px;
+}
+
+.ratingDiv {
+  display: flex;
+  align-items: center;
+}
+
+.moviePosterTitle {
+  margin-bottom: 7px;
+  font-size: 9.5px;
+}
+
+.addToFavBtn {
+  width: 2em;
+  border: none;
+  display: flex;
+  background: transparent
+}
+
+.addToFavSpan {
+  font-size: 8px;
+  margin-left: 3px
+}
+
+.addToFavDiv {
+  display: flex;
+  position: fixed;
+  bottom: 10%;
+  align-items: center
 }
 
 .hiddenText {
@@ -389,4 +424,13 @@ code {
 .youtubeIcons {
   color: white;
   font-size: 50px;
+}
+
+/* --------------- STYLE FOR SEARCH --------------- */
+
+.contentMainContainerSearch {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 50px;
 }
