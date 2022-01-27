@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import Index from './pages/Index';
 import ShowMovie from './pages/ShowMovie';
 import Nav from './components/Nav'
+import Search from './pages/Search';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
           />}
         />
       </Switch>
+      <Route>
+        <Search />
+      </Route>
 
     </div>
   );

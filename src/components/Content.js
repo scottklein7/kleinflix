@@ -17,7 +17,7 @@ function Content({ getMovie, posterData }) {
     const base_url = "https://image.tmdb.org/t/p/original/"
 
     useEffect(() => {
-        async function fetchMovies() {
+        async function fetchMovies(evt) {
             try {
                 const res = await Promise.all([
                     axios.get(movieReq.fetchTrending),
@@ -38,6 +38,7 @@ function Content({ getMovie, posterData }) {
                 setWar(data[4])
                 setDocs(data[5])
                 setAnimation(data[6])
+                evt.preventDefault()
 
             } catch {
                 throw Error('Promise failed')
