@@ -10,6 +10,7 @@ function Search() {
         searchReq={searchReq}
         API_KEY={API_KEY}
         discoverContent={discoverContent}
+        mediaType={'movie'}
          />
   )
 }

@@ -5,7 +5,6 @@ import Trailer from './Trailer';
 
 
 export default function ShowContent(props) {
-    const [play, setPlay] = useState(false);
     const { movie, backgroundUrl, posterUrl, mediaType, id } = props
     const networkUrl = 'https://image.tmdb.org/t/p/w92'
 

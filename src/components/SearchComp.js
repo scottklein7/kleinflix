@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import { IoStarSharp, IoPlay } from 'react-icons/io5';
+import { IoStarSharp, IoCodeSharp, IoCodeSlashSharp, IoSearch } from 'react-icons/io5';
 import axios from '../axios';
 
 
@@ -54,20 +54,25 @@ function SearchComp(props) {
 
   return (
     <>
-      <header>
-        <div style={{ color: 'white' }}>
+      <header className='searchHeader'>
+        <div className='mainSearchDiv'>
+          <div className="searchLinks">
+            <Link className='searchLinkTags' to={{ pathname: `/search` }} >
+              <IoCodeSharp />Search Movies<IoCodeSlashSharp />
+            </Link>
+            <Link className='searchLinkTags' to={{ pathname: `/search/tvshows` }} >
+              <IoCodeSharp />Search Tv Shows<IoCodeSlashSharp />
+            </Link>
+          </div>
           <form onSubmit={handleSumbit} >
             <input type="text"
               value={search.searchTerm}
               placeholder='Movie'
               onChange={handleSearchChange}
-              onInput={(evt) => setSearch(evt.target.value)} />
+              onInput={(evt) => setSearch(evt.target.value)}
+              className='searchInput' />
+              {/* <input type="submit" name="searchBar" value={<IoSearch />} /> */}
           </form>
-          <Link to={{ pathname: `/search/tvshows` }} >
-            Search Tv Shows
-          </Link> <Link to={{ pathname: `/search` }} >
-            Search Movies
-          </Link>
         </div>
       </header>
 
@@ -75,7 +80,7 @@ function SearchComp(props) {
 
       <div className='contentMainContainerSearch'>
         {movie?.map((movie) => (
-          <Link to={{ pathname: `/show/${movie.id}`, state: { movie } }}>
+          <Link to={{ pathname: `/show/${movie?.id}`, state: { movie } }}>
             <div className="contentSecondContainer">
               <img
                 className='contentImg'

@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import Index from './pages/Index';
 import ShowMovie from './pages/ShowMovie';
 import Nav from './components/Nav'
-import Search from './pages/Search';
+import SearchMovie from './pages/SearchMovie';
 import SearchTvShows from './pages/SearchTvShows';
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
         />
       </Switch>
       <Route exact path='/search'>
-        <Search />
+        <SearchMovie />
       </Route>
       <Route path='/search/tvshows'>
         <SearchTvShows />

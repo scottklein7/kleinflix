@@ -434,3 +434,34 @@ code {
   justify-content: space-evenly;
   margin-top: 50px;
 }
+
+.mainSearchDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center ;
+}
+
+
+.searchLinkTags {
+  padding: 20px;
+  color: #10B174;
+}
+
+.searchInput {
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 170px;
+  height: 20px;
+  border: 1px solid #10B174;
+  border-radius: 10px;
+}
+
+.searchHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
