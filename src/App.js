@@ -1,10 +1,11 @@
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
-import Index from './pages/Index';
-import ShowMovie from './pages/ShowMovie';
+import MovieIndex from './pages/Movies/MovieIndex';
 import Nav from './components/Nav'
-import SearchMovie from './pages/SearchMovie';
-import SearchTvShows from './pages/SearchTvShows';
+import SearchMovie from './pages/Movies/SearchMovie';
+import SearchTvShows from './pages/Tv/SearchTvShows';
+import TvIndex from './pages/Tv/TvIndex';
+import ShowContentPage from './pages/ShowContentPage'
 
 function App() {
   return (
@@ -13,11 +14,16 @@ function App() {
 
       <Switch>
         <Route exact path='/' >
-          <Index />
+          <MovieIndex />
         </Route>
-       <Route
+
+        <Route exact path='/tv' >
+          <TvIndex />
+        </Route>
+
+        <Route
           exact path="/show/:id"
-          render={(routerProps) => <ShowMovie {...routerProps}
+          render={(routerProps) => <ShowContentPage {...routerProps}
           />}
         />
       </Switch>

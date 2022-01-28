@@ -4,15 +4,15 @@ import ShowContent from '../components/ShowContent';
 
 
 
-function ShowMovie(props) {
+function ShowContentPage(props) {
   const id = props.match.params.id
-  const mediaType = props.location.state.trending.media_type
+  const media = props.location.state.media
   const API_KEY = process.env.REACT_APP_API_KEY
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
     async function getMovie() {
-      const res = await axios.get(`${mediaType}/${id}?api_key=${API_KEY}&append_to_response=credits`)
+      const res = await axios.get(`${media}/${id}?api_key=${API_KEY}&append_to_response=credits`)
       setMovie(res.data)
     } 
     
@@ -28,7 +28,7 @@ function ShowMovie(props) {
       movie={movie}
       backgroundUrl={backgroundUrl}
       posterUrl={posterUrl}
-      mediaType={mediaType}
+      media={media}
       id={id}
     />
 
@@ -36,4 +36,4 @@ function ShowMovie(props) {
 
 }
 
-export default ShowMovie;
+export default ShowContentPage;

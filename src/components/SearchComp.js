@@ -5,7 +5,7 @@ import axios from '../axios';
 
 
 function SearchComp(props) {
-  const { API_KEY, searchReq, discoverContent } = props
+  const { media, searchReq, discoverContent } = props
   const [search, setSearch] = useState('');
   const [movie, setMovie] = useState(null);
   // https://api.themoviedb.org/3/search/movie?api_key=3c73026aded75f276f28e49aaaa8cf92&language=en-US&page=1&query=batman
@@ -71,16 +71,15 @@ function SearchComp(props) {
               onChange={handleSearchChange}
               onInput={(evt) => setSearch(evt.target.value)}
               className='searchInput' />
-              {/* <input type="submit" name="searchBar" value={<IoSearch />} /> */}
           </form>
         </div>
       </header>
 
-      {console.log('yooo', movie)}
 
       <div className='contentMainContainerSearch'>
         {movie?.map((movie) => (
-          <Link to={{ pathname: `/show/${movie?.id}`, state: { movie } }}>
+          console.log('hi', media, movie.id),
+          <Link to={{ pathname: `/show/${movie.id}`, state: { movie, media } }}>
             <div className="contentSecondContainer">
               <img
                 className='contentImg'

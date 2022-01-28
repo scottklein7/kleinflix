@@ -4,7 +4,7 @@ import axios from '../axios';
 import { IoPlay, IoClose } from 'react-icons/io5';
 
 
-function Trailer({ id, mediaType }) {
+function Trailer({ id, media }) {
 
     const [trailerId, setTrailerId] = useState(null);
     const [play, setPlay] = useState(false);
@@ -13,7 +13,7 @@ function Trailer({ id, mediaType }) {
 
     useEffect(() => {
         async function getTrailer() {
-            const res = await axios.get(`${mediaType}/${id}?api_key=${API_KEY}&append_to_response=videos`)
+            const res = await axios.get(`${media}/${id}?api_key=${API_KEY}&append_to_response=videos`)
             const trailerData = res.data
             if (trailerData.videos && trailerData.videos.results) {
                 const trailer = trailerData.videos.results.find(vid => vid.name === ("Official Trailer"))

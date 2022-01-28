@@ -4,13 +4,12 @@ import axios from '../axios'
 import movieReq from '../MovieRequests'
 import App from '../App.css'
 
-function Background() {
-    // we need to get a fetch req from one of our movieReqs
+function Background({backGroundReq}) {
     const [background, setBackground] = useState([])
 
     useEffect(() => {
         async function getBackgroundImg() {
-            await axios.get(movieReq.fetchTrending).then(movie => {
+            await axios.get(backGroundReq).then(movie => {
                 const result = movie.data.results
                 let randomMovie = Math.floor(Math.random() * result.length)
                 setBackground(result[randomMovie])
@@ -18,6 +17,7 @@ function Background() {
         }
         getBackgroundImg()
     }, [])
+    console.log('backgrounddddd', background)
 
     const movieImg = `https://image.tmdb.org/t/p/original${background?.backdrop_path}`
 
