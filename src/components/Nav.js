@@ -1,11 +1,20 @@
-import React from 'react'
+import {React, useEffect, useState} from 'react'
 import { Link, Switch } from 'react-router-dom'
 import Typewriter from 'typewriter-effect';
 
 
 
 function Nav() {
+    const [show, handleShow] = useState(false)
+    const transitionNavBar = () => {
+        window.scrollY > 100 ? handleShow(true) : handleShow(false)
+    }
 
+    useEffect(() => {
+        window.addEventListener('scroll', transitionNavBar)
+        return () => window.removeEventListener('scroll', transitionNavBar)
+    }, [])
+    
     return (
         <>
             <div className='navContainer' style={{
@@ -25,11 +34,15 @@ function Nav() {
                                 cursor: 'pointer'
                             }} />
                     </Link>
+        
+                    <Link to='/tv' style={{textDecoration: 'none', color: '#10B174'}}>
+                        TvShows
+                    </Link>
                     <Link to='/favorites' style={{ textDecoration: 'none' }}>
                         <div className="favoritesNavDiv">
                             <Typewriter
                                 options={{
-                                    strings: ['SEE', 'Your', 'Favorites'],
+                                    strings: ['Fav', 'Favori', 'Favorites'],
                                     autoStart: true,
                                     loop: true,
                                     cursorClassName: 'Typewriter__cursor'
