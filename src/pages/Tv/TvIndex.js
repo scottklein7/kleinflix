@@ -5,6 +5,7 @@ import movieReq from '../../MovieRequests';
 
 function TvIndex(props) {
     const [media, setMedia] = useState('tv');
+    // useState(media)
     return (
         <div className='App'>
             < Background
