@@ -12,7 +12,7 @@ function MoviePosters(props) {
             <h1 className='contentGenereHeader'>{sectionTitle}</h1>
             <div className='contentMainContainer'>
                 {movie.map((movie) => (
-                    <Link to={{ pathname: `/show/${movie.id}`, state: { movie, media } }}>
+                    <Link to={{ pathname: `/show/${movie.id}`, state: { media } }}>
                         <div className="contentSecondContainer" key={movie.id}>
                             <img
                                 className='contentImg'

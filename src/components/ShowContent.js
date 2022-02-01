@@ -1,12 +1,33 @@
 import { React, useState, useEffect } from 'react';
-import { IoStarSharp, IoPlay } from 'react-icons/io5';
+import axios from '../axios';
 import ShowCast from './ShowCast';
 import Trailer from './Trailer';
+import { IoStarSharp, IoPlay } from 'react-icons/io5';
 
 
 export default function ShowContent(props) {
-    const { movie, backgroundUrl, posterUrl, media, id } = props
+    const { backgroundUrl, posterUrl, media, id } = props
+
+    const [movie, setMovie] = useState(null);
+    const [trailerId, setTrailerId] = useState(null);
+
     const networkUrl = 'https://image.tmdb.org/t/p/w92'
+    const API_KEY = process.env.REACT_APP_API_KEY
+
+
+    useEffect(() => {
+        async function getMovie() {
+            const res = await axios.get(`${media}/${id}?api_key=${API_KEY}&append_to_response=videos,credits`)
+            const trailerData = res.data
+            setMovie(trailerData)
+            if (trailerData.videos && trailerData.videos.results) {
+                const trailer = trailerData.videos.results.find(vid => vid.name === ("Official Trailer"))
+                setTrailerId(trailer ? trailer : trailerData.videos.results[0])
+            }
+        }
+        getMovie()
+    }, []);
+
 
 
     const truncateOverview = (str, cutOffNum) => {
@@ -18,8 +39,8 @@ export default function ShowContent(props) {
             {media === 'movie' ?
                 <>
                     <Trailer
-                        id={id}
-                        media={media}
+                        movie={movie}
+                        trailerId={trailerId}
                     />
                     <div className="showMovieMainDiv">
                         <div className='showMoviePosterDiv'>
@@ -49,8 +70,8 @@ export default function ShowContent(props) {
 
                 <>
                     <Trailer
-                        id={id}
-                        media={media}
+                        movie={movie}
+                        trailerId={trailerId}
                     />
                     <div className="showMovieMainDiv">
                         <div>

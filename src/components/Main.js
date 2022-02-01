@@ -6,13 +6,16 @@ import SearchMovie from '../pages/Movies/SearchMovie';
 import SearchTvShows from '../pages/Tv/SearchTvShows';
 import TvIndex from '../pages/Tv/TvIndex';
 import ShowContentPage from '../pages/ShowContentPage'
-import Favorites from '../pages/Favorites';
+import FavoriteMovies from '../pages/Movies/FavoriteMovies'
+import FavoriteTvShows from '../pages/Tv/FavoriteTvShows'
 
 
 function Main(props) {
 
     const URL = 'http://localhost:3001/favorites/'
+    const TVURL = 'http://localhost:3001/favorites/tvshows/'
     const [favorites, setFavorites] = useState([]);
+    const [favoritesTv, setFavoritesTv] = useState([]);
     const getFavoritesRef = useRef()
 
 
@@ -28,6 +31,20 @@ function Main(props) {
 
         const data = await res.json()
         setFavorites(data)
+    }
+
+    async function getFavoriteTvShows() {
+        if (!props.user) return
+        const token = await props.user.getIdToken()
+        const res = await fetch(TVURL, {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        })
+
+        const data = await res.json()
+        setFavoritesTv(data)
     }
 
     async function createFavorite(favorite) {
@@ -54,8 +71,19 @@ function Main(props) {
                 'Authorization': 'Bearer ' + token
             }
         });
-
         getFavorites();
+    };
+
+    const deleteFavoriteTvShows = async (id) => {
+        if (!props.user) return;
+        const token = await props.user.getIdToken();
+        await fetch(TVURL + id, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        });
+        getFavoriteTvShows();
     };
 
     const handleLogout = () => {
@@ -101,19 +129,26 @@ function Main(props) {
             </Switch>
 
             <Route exact path='/search'>
-                <SearchMovie />
+                <SearchMovie createFavorite={createFavorite} />
             </Route>
 
             <Route path='/search/tvshows'>
-                <SearchTvShows />
+                <SearchTvShows createFavorite={createFavorite} />
             </Route>
 
-            <Route path='/favorites'>
-                <Favorites
+            <Route exact path='/favorites'>
+                <FavoriteMovies
                     user={props.user}
-                    getFavorites={getFavorites}
                     deleteFavorites={deleteFavorites}
                     favorites={favorites}
+                />
+            </Route>
+
+            <Route path='/favorites/tvshows'>
+                <FavoriteTvShows
+                    user={props.user}
+                    deleteFavorites={deleteFavoriteTvShows}
+                    favorites={favoritesTv}
                 />
             </Route>
 

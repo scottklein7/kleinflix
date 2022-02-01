@@ -4,7 +4,7 @@ import movieReq from '../../MovieRequests'
 import MoviePosters from '../MoviePosters';
 
 
-function TvContent() {
+function TvContent(props) {
     const [tvDiscover, setTvDiscover] = useState([]);
     const [tvAction, settvAction] = useState([]);
     const [tvSciFi, setTvSciFi] = useState([]);
@@ -58,42 +58,48 @@ function TvContent() {
                 sectionTitle={'Discover Tv Shows'}
                 base_url={base_url}
                 truncateOverview={truncateOverview}
-                media={media} />
+                media={media}
+                createFavorite={props.createFavorite} />
 
             <MoviePosters
                 movie={tvAction}
                 sectionTitle={'Action'}
                 base_url={base_url}
                 truncateOverview={truncateOverview}
-                media={media} />
+                media={media}
+                createFavorite={props.createFavorite} />
 
             <MoviePosters
                 movie={tvSciFi}
                 sectionTitle={'Sci-Fi'}
                 base_url={base_url}
                 truncateOverview={truncateOverview}
-                media={media} />
+                media={media}
+                createFavorite={props.createFavorite} />
 
             <MoviePosters
                 movie={tvComedy}
                 sectionTitle={'Comedy'}
                 base_url={base_url}
                 truncateOverview={truncateOverview}
-                media={media} />
+                media={media}
+                createFavorite={props.createFavorite} />
 
             <MoviePosters
                 movie={tvAnimation}
                 sectionTitle={'Animation'}
                 base_url={base_url}
                 truncateOverview={truncateOverview}
-                media={media} />
+                media={media}
+                createFavorite={props.createFavorite} />
 
             <MoviePosters
                 movie={mystery}
                 sectionTitle={'Mystery'}
                 base_url={base_url}
                 truncateOverview={truncateOverview}
-                media={media} />
+                media={media}
+                createFavorite={props.createFavorite} />
         </>
     );
 }

@@ -2,13 +2,13 @@ import { React, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import { IoStarSharp, IoCodeSharp, IoCodeSlashSharp, IoSearch } from 'react-icons/io5';
 import axios from '../axios';
+import AddToFavorites from './AddToFavorites';
 
 
 function SearchComp(props) {
-  const { media, searchReq, discoverContent } = props
+  const { media, searchReq, discoverContent, createFavorite } = props
   const [search, setSearch] = useState('');
   const [movie, setMovie] = useState(null);
-  // https://api.themoviedb.org/3/search/movie?api_key=3c73026aded75f276f28e49aaaa8cf92&language=en-US&page=1&query=batman
   const base_url = "https://image.tmdb.org/t/p/original/"
 
   useEffect(() => {
@@ -95,10 +95,7 @@ function SearchComp(props) {
                 <h2 className='moviePosterTitle'>{movie?.title || movie?.original_title || movie?.original_name}</h2>
                 <p style={{ fontSize: '7.5px' }}>{truncateOverview(movie?.overview, 150)}</p>
                 <div className='addToFavDiv'>
-                  <button className='addToFavBtn' >
-                    <img src={'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fadd-1-icon.png&f=1&nofb=1'} alt="addtolistlogo"
-                      style={{ width: '1.2em' }} />
-                  </button>
+                  <AddToFavorites movie={movie} media={media} createFavorite={createFavorite} />
                   <span className='addToFavSpan'>Add to favorites</span>
                 </div>
               </div>

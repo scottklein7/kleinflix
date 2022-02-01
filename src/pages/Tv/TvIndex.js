@@ -3,14 +3,14 @@ import TvContent from '../../components/Tv/TvContent';
 import Background from '../../components/Background';
 import movieReq from '../../MovieRequests';
 
-function TvIndex() {
+function TvIndex(props) {
     const [media, setMedia] = useState('tv');
     return (
         <div className='App'>
             < Background
                 backGroundReq={movieReq.fetchTvDiscover}
                 media={media} />
-            < TvContent />
+            < TvContent createFavorite={props.createFavorite} />
         </div>
     )
 }

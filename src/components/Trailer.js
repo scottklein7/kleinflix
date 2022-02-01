@@ -1,27 +1,11 @@
-import { React, useEffect, useState } from 'react';
+import { React, useState } from 'react';
 import YouTube from 'react-youtube';
-import axios from '../axios';
+
 import { IoPlay, IoClose } from 'react-icons/io5';
 
 
-function Trailer({ id, media }) {
-
-    const [trailerId, setTrailerId] = useState(null);
+function Trailer({ trailerId }) {
     const [play, setPlay] = useState(false);
-
-    const API_KEY = process.env.REACT_APP_API_KEY
-
-    useEffect(() => {
-        async function getTrailer() {
-            const res = await axios.get(`${media}/${id}?api_key=${API_KEY}&append_to_response=videos`)
-            const trailerData = res.data
-            if (trailerData.videos && trailerData.videos.results) {
-                const trailer = trailerData.videos.results.find(vid => vid.name === ("Official Trailer"))
-                setTrailerId(trailer ? trailer : trailerData.videos.results[0])
-            }
-        }
-        getTrailer()
-    }, []);
 
     return (
         <div className='youtubeTrailerDiv'>
