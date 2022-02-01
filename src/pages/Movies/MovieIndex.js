@@ -5,7 +5,7 @@ import movieReq from '../../MovieRequests';
 
 
 
-function MovieIndex() {
+function MovieIndex({ createFavorite }) {
 
     const [media, setMedia] = useState('movie');
     return (
@@ -13,7 +13,8 @@ function MovieIndex() {
             < Background
                 backGroundReq={movieReq.fetchAction}
                 media={media} />
-            < MovieContent />
+            < MovieContent
+                createFavorite={createFavorite} />
         </div>
     )
 }

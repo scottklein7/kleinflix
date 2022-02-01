@@ -1,5 +1,6 @@
-import firebase from "firebase/app";
-import 'firebase/auth'
+import firebase from 'firebase/app';
+import 'firebase/auth';
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyBGfgNvDNTZRR9aCTXIKhVl0yHbMt_lWQU",
@@ -8,19 +9,27 @@ const firebaseConfig = {
     storageBucket: "kleinflix-f0e06.appspot.com",
     messagingSenderId: "515960203259",
     appId: "1:515960203259:web:426a4c405c0ffc88898d5e"
-  };
+};
 
-  firebase.initializeApp(firebaseConfig)
+firebase.initializeApp(firebaseConfig);
 
-  const auth = firebase.auth() 
-  const provider = new firebase.auth.EmailAuthProvider()
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
 
-  function login() {
-    return auth.signInWithPopup(provider)
-  }
+// function signUp(email, password) {
+//     return auth.createUserWithEmailAndPassword(email, password);
+// }
 
-  function logout() {
-    return auth.signOut()
-  }
+// function login(email, password) {
+//     return auth.signInWithEmailAndPassword(email, password);
+// }
 
-  export { auth, login, logout }
+function login() {
+    return auth.signInWithPopup(provider);
+}
+
+function logout() {
+    return auth.signOut();
+}
+
+export { auth, login, logout };

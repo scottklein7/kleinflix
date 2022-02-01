@@ -4,7 +4,7 @@ import axios from '../../axios'
 import movieReq from '../../MovieRequests'
 
 
-function MovieContent() {
+function MovieContent({ createFavorite }) {
     const [thriller, setThriller] = useState([]);
     const [action, setAction] = useState([]);
     const [comedy, setComedy] = useState([]);
@@ -27,6 +27,7 @@ function MovieContent() {
                     axios.get(movieReq.fetchAnimation),
                 ])
                 const data = res.map((res) => res.data.results)
+                console.log(data)
 
                 setThriller(data[0])
                 setAction(data[1])
@@ -58,42 +59,48 @@ function MovieContent() {
                 sectionTitle={'Action'}
                 base_url={base_url}
                 truncateOverview={truncateOverview}
-                media={media} />
+                media={media}
+                createFavorite={createFavorite} />
 
             <Posters
                 movie={thriller}
                 sectionTitle={'Thrillers'}
                 base_url={base_url}
                 truncateOverview={truncateOverview}
-                media={media} />
+                media={media}
+                createFavorite={createFavorite} />
 
             <Posters
                 movie={comedy}
                 sectionTitle={'Comedy'}
                 base_url={base_url}
                 truncateOverview={truncateOverview}
-                media={media} />
+                media={media}
+                createFavorite={createFavorite} />
 
             <Posters
                 movie={war}
                 sectionTitle={'War'}
                 base_url={base_url}
                 truncateOverview={truncateOverview}
-                media={media} />
+                media={media}
+                createFavorite={createFavorite} />
 
             <Posters
                 movie={animation}
                 sectionTitle={'Animation'}
                 base_url={base_url}
                 truncateOverview={truncateOverview}
-                media={media} />
+                media={media}
+                createFavorite={createFavorite} />
 
             <Posters
                 movie={Docs}
                 sectionTitle={'Docs'}
                 base_url={base_url}
                 truncateOverview={truncateOverview}
-                media={media} />
+                media={media}
+                createFavorite={createFavorite} />
 
 
         </>
