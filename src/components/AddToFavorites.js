@@ -10,7 +10,6 @@ function AddToFavorites({movie, media, createFavorite}) {
         title: (movie?.title || movie?.original_title || movie?.original_name),
         overview: movie?.overview
     });
-   
 
 
     return (

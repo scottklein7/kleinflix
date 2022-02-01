@@ -12,11 +12,12 @@ import FavoriteTvShows from '../pages/Tv/FavoriteTvShows'
 
 function Main(props) {
 
-    const URL = 'http://localhost:3001/favorites/'
-    const TVURL = 'http://localhost:3001/favorites/tvshows/'
+    const URL = 'https://kleinflix-backend.herokuapp.com/favorites/'
+    const TVURL = 'https://kleinflix-backend.herokuapp.com/favorites/tvshows/'
     const [favorites, setFavorites] = useState([]);
     const [favoritesTv, setFavoritesTv] = useState([]);
     const getFavoritesRef = useRef()
+    const getFavoritesTvRef = useRef()
 
 
     async function getFavorites() {
@@ -60,6 +61,7 @@ function Main(props) {
             body: JSON.stringify(favorite)
         })
         getFavorites()
+        getFavoriteTvShows()
     }
 
     const deleteFavorites = async (id) => {
@@ -92,11 +94,13 @@ function Main(props) {
 
     useEffect(() => {
         getFavoritesRef.current = getFavorites;
+        getFavoritesTvRef.current = getFavoriteTvShows;
     })
 
     useEffect(() => {
         if (props.user) {
             getFavoritesRef.current();
+            getFavoritesTvRef.current()
         } else {
             handleLogout()
         }
