@@ -28,7 +28,10 @@ Do you like movies? Do you like tv shows? Do you like watching trailers? Well th
 ![screenshot 9](https://user-images.githubusercontent.com/81238878/152064178-515d00cc-e6d3-4c75-8b25-947bf6d8ffcd.png)
 
 ## Getting Started
-[Click here]() to see the site live
+[Click here](https://kleinflix.netlify.app/) to see the site live
 
 ## Future Enhancements
+- Allow user to add from searched movies
+- Allow user to add from show movies
+- Complete mobile styling 
 
