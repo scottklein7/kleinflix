@@ -2,7 +2,6 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from '../axios'
 import { Link } from 'react-router-dom'
-import App from '../App.css'
 
 function Background({ backGroundReq, media }) {
     const [movie, setMovie] = useState([])

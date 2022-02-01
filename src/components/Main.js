@@ -107,9 +107,6 @@ function Main(props) {
 
     }, [props.user]);
 
-    const loading = () => {
-        return <h1>Loading</h1>;
-    };
     return (
         <>
             < Nav user={props.user} />

@@ -2,7 +2,7 @@ import {React, useState} from 'react';
 
 function AddToFavorites({movie, media, createFavorite}) {
     const id = movie.id
-    const [addFavorite, setAddFavorite] = useState({
+    const [addFavorite] = useState({
         movieID: id,
         media: media,
         backDrop: (movie?.backdrop_path || movie?.poster_path),

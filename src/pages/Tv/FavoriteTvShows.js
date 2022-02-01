@@ -3,7 +3,7 @@ import FavoritesComp from '../../components/FavoritesComp';
 
 function FavoriteTvShows(props) {
     const { deleteFavorites, favorites } = props
-    const [media, setMedia] = useState('tv');
+    const [media] = useState('tv');
     const base_url = "https://image.tmdb.org/t/p/original/"
 
     const truncateOverview = (str, cutOffNum) => {

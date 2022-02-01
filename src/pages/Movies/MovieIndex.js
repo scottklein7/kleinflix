@@ -7,7 +7,7 @@ import movieReq from '../../MovieRequests';
 
 function MovieIndex({ createFavorite }) {
 
-    const [media, setMedia] = useState('movie');
+    const [media] = useState('movie');
     return (
         <div className='App'>
             < Background

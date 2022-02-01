@@ -2,7 +2,7 @@ import { React, useState, useEffect } from 'react';
 import axios from '../axios';
 import ShowCast from './ShowCast';
 import Trailer from './Trailer';
-import { IoStarSharp, IoPlay } from 'react-icons/io5';
+import { IoStarSharp } from 'react-icons/io5';
 
 
 export default function ShowContent(props) {
@@ -27,12 +27,6 @@ export default function ShowContent(props) {
         }
         getMovie()
     }, []);
-
-
-
-    const truncateOverview = (str, cutOffNum) => {
-        return str?.length > cutOffNum ? str.slice(0, cutOffNum - 1) + '...' : str
-    }
 
     return (
         <div className='backgroundDiv' style={{ color: '#10B174', background: `url(${backgroundUrl}${movie?.backdrop_path})` }}>

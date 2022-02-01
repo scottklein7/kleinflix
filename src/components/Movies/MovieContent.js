@@ -11,7 +11,7 @@ function MovieContent({ createFavorite }) {
     const [war, setWar] = useState([]);
     const [Docs, setDocs] = useState([]);
     const [animation, setAnimation] = useState([]);
-    const [media, setMedia] = useState('movie');
+    const [media] = useState('movie');
 
     const base_url = "https://image.tmdb.org/t/p/original/"
 
@@ -46,10 +46,6 @@ function MovieContent({ createFavorite }) {
 
     function truncateOverview(str, cutOffNum) {
         return str?.length > cutOffNum ? str.slice(0, cutOffNum - 1) + '...read more' : str
-    }
-
-    function addToList() {
-        <span>Added to list</span>
     }
 
     return (

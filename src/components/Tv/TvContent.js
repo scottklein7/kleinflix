@@ -11,7 +11,7 @@ function TvContent(props) {
     const [tvComedy, setTvComedy] = useState([]);
     const [tvAnimation, setTvAnimation] = useState([]);
     const [mystery, setTvMystery] = useState([]);
-    const [media, setMedia] = useState('tv');
+    const [media] = useState('tv');
 
     const base_url = "https://image.tmdb.org/t/p/original/"
 

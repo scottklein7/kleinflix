@@ -4,8 +4,7 @@ import Background from '../../components/Background';
 import movieReq from '../../MovieRequests';
 
 function TvIndex(props) {
-    const [media, setMedia] = useState('tv');
-    // useState(media)
+    const [media] = useState('tv');
     return (
         <div className='App'>
             < Background

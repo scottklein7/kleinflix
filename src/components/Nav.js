@@ -1,5 +1,5 @@
-import { React, useEffect, useState, useContext } from 'react'
-import { Link, Switch } from 'react-router-dom'
+import { React } from 'react'
+import { Link } from 'react-router-dom'
 import { login, logout } from '../services/firebase';
 import Typewriter from 'typewriter-effect';
 

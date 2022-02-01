@@ -1,12 +1,11 @@
 import { React, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
-import { IoStarSharp, IoCodeSharp, IoCodeSlashSharp, IoSearch } from 'react-icons/io5';
+import { IoStarSharp, IoCodeSharp, IoCodeSlashSharp } from 'react-icons/io5';
 import axios from '../axios';
-import AddToFavorites from './AddToFavorites';
 
 
 function SearchComp(props) {
-  const { media, searchReq, discoverContent, createFavorite } = props
+  const { media, searchReq, discoverContent } = props
   const [search, setSearch] = useState('');
   const [movie, setMovie] = useState(null);
   const base_url = "https://image.tmdb.org/t/p/original/"
@@ -22,7 +21,6 @@ function SearchComp(props) {
     }
     handleSearchChange()
     console.log(movie)
-
   }, []);
 
 
@@ -78,14 +76,12 @@ function SearchComp(props) {
 
       <div className='contentMainContainerSearch'>
         {movie?.map((movie) => (
-          console.log('hi', media, movie.id),
-          <Link to={{ pathname: `/show/${movie.id}`, state: { movie, media } }}>
+          <Link key={movie.id} to={{ pathname: `/show/${movie.id}`, state: { movie, media } }}>
             <div className="contentSecondContainer">
               <img
                 className='contentImg'
                 src={`${base_url}${movie?.backdrop_path || movie?.poster_path}`}
                 alt={movie?.name}
-                key={movie?.id}
               />
               <div className='hiddenText'>
                 <div className='ratingDiv'>

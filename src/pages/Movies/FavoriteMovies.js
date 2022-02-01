@@ -4,7 +4,7 @@ import FavoritesComp from '../../components/FavoritesComp';
 
 function FavoriteMovies(props) {
   const { deleteFavorites, favorites } = props
-  const [media, setMedia] = useState('movie');
+  const [media] = useState('movie');
   const base_url = "https://image.tmdb.org/t/p/original/"
 
   const truncateOverview = (str, cutOffNum) => {

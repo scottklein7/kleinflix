@@ -1,5 +1,5 @@
 import React from 'react';
-import { IoStarSharp, IoAddCircle } from 'react-icons/io5';
+import { IoStarSharp } from 'react-icons/io5';
 import { Link } from 'react-router-dom'
 import AddToFavorites from './AddToFavorites';
 
@@ -12,13 +12,12 @@ function MoviePosters(props) {
             <h1 className='contentGenereHeader'>{sectionTitle}</h1>
             <div className='contentMainContainer'>
                 {movie.map((movie) => (
-                    <Link to={{ pathname: `/show/${movie.id}`, state: { media } }}>
+                    <Link key={movie.id} to={{ pathname: `/show/${movie.id}`, state: { media } }}>
                         <div className="contentSecondContainer" key={movie.id}>
                             <img
                                 className='contentImg'
                                 src={`${base_url}${movie?.backdrop_path || movie?.poster_path}`}
                                 alt={movie?.id}
-                                key={movie?.id}
                             />
                             <div className='hiddenText'>
                                 <div className='ratingDiv'>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import AddToFavorites from '../components/AddToFavorites';
 import RemoveFavorites from '../components/RemoveFavorites';
 import { IoStarSharp, IoCodeSharp, IoCodeSlashSharp } from 'react-icons/io5'
 
