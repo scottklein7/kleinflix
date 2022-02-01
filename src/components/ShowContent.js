@@ -26,7 +26,7 @@ export default function ShowContent(props) {
             }
         }
         getMovie()
-    }, []);
+    }, [API_KEY, id, media]);
 
     return (
         <div className='backgroundDiv' style={{ color: '#10B174', background: `url(${backgroundUrl}${movie?.backdrop_path})` }}>

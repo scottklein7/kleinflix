@@ -17,7 +17,7 @@ function ShowContentPage(props) {
     } 
     
     getMovie()
-  }, []);
+  }, [API_KEY, id, media]);
 
   const backgroundUrl = "https://image.tmdb.org/t/p/w1280/"
   const posterUrl = "https://image.tmdb.org/t/p/w780/"

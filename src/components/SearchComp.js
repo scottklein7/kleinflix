@@ -20,8 +20,7 @@ function SearchComp(props) {
       }
     }
     handleSearchChange()
-    console.log(movie)
-  }, []);
+  }, [discoverContent]);
 
 
   async function handleSearchChange(evt) {

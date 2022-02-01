@@ -15,7 +15,7 @@ function Background({ backGroundReq, media }) {
             })
         }
         getBackgroundImg()
-    }, [])
+    }, [backGroundReq])
     console.log('backgrounddddd', movie)
 
     const movieImg = `https://image.tmdb.org/t/p/original${movie?.backdrop_path}`
