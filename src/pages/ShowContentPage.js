@@ -2,8 +2,6 @@ import { React, useEffect, useState } from 'react';
 import axios from '../axios';
 import ShowContent from '../components/ShowContent';
 
-
-
 function ShowContentPage(props) {
   const id = props.match.params.id
   const media = props.location.state.media
@@ -30,6 +28,7 @@ function ShowContentPage(props) {
       posterUrl={posterUrl}
       media={media}
       id={id}
+      createFavorite={props.createFavorite}
     />
 
   )

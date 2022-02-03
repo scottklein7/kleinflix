@@ -28,7 +28,8 @@ code {
   height: 60px;
   background: #000
 }
-.navLinks{
+
+.navLinks {
   text-decoration: none;
   color: #10B174;
   font-size: 13px;
@@ -219,10 +220,19 @@ code {
   background-repeat: no-repeat;
   position: relative;
   object-fit: contain;
+  justify-content: center;
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
+}
+
+@media screen and (min-width: 955px) {
+  .backgroundDiv {
+    width: auto;
+    height: 100vh;
+    justify-content: center;
+  }
 }
 
 .showMovieMainDiv {
@@ -233,23 +243,24 @@ code {
   right: 5%;
   align-items: center;
   height: 100%;
-  height: 790px;
+  height: 800px;
   background: rgba(7, 7, 7, 0.75);
 }
 
 @media screen and (min-width: 840px) {
   .showMovieMainDiv {
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
-    position: absolute;
-    top: 50;
-    left: 5%;
-    right: 5%;
-    align-items: center;
-    height: 100%;
     height: 570px;
-    background: rgba(7, 7, 7, 0.75);
+  }
+}
+
+@media screen and (min-width: 955px) {
+  .showMovieMainDiv {
+    width: 950px;
+    position: relative;
+    height: 690px;
+    left: 0%;
   }
 }
 
@@ -266,7 +277,15 @@ code {
     height: 570px;
     filter: contrast(115%);
     margin-top: 0px;
+  }
+}
 
+@media screen and (min-width: 955px) {
+  .showMovieSecondPosterImg {
+    width: 430px;
+    height: 690px;
+    filter: contrast(115%);
+    margin-top: 0px;
   }
 }
 
@@ -275,6 +294,7 @@ code {
   flex-direction: column;
   text-align: center;
   margin-left: 10px;
+  margin-right: 10px;
   line-height: 1.15;
   font-size: 10.5px;
   margin-top: 30px;
@@ -282,12 +302,13 @@ code {
 
 @media screen and (min-width: 840px) {
   .showMovieInfoDiv {
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-    line-height: 1.15;
     font-size: 13.5px;
-    margin-top: 30px;
+  }
+}
+
+@media screen and (min-width: 955px) {
+  .showMovieInfoDiv {
+    font-size: 17.5px;
   }
 }
 
@@ -299,18 +320,27 @@ code {
   font-size: 17px;
 }
 
+.showMovieAddToFav {
+  position: absolute;
+  bottom: 93%;
+  left: 90%;
+}
+
 @media screen and (max-width: 840px) {
   .showMovieRatingDiv {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    bottom: 50%;
+    bottom: 49%;
     font-size: 15px;
   }
 }
 
 .showMovieOverviewP {
   font-size: 11.5px;
+}
+
+@media screen and (min-width: 955px) {
+  .showMovieOverviewP {
+    font-size: 13.5px;
+  }
 }
 
 /* --------------- STYLE FOR SHOWCAST --------------- */
@@ -332,7 +362,13 @@ code {
 }
 
 .showCastImg {
-  width: 70px;
+  width: 75px;
+}
+
+@media screen and (min-width: 955px) {
+  .showCastImg {
+    width: 90px;
+  }
 }
 
 .castTextDiv {
@@ -349,6 +385,12 @@ code {
   font-weight: bolder;
   transition: transform .4s ease .1s;
   visibility: hidden;
+}
+
+@media screen and (min-width: 955px) {
+  .castTextDiv {
+    font-size: 8.5px;
+  }
 }
 
 .showCastImgDiv:hover,
@@ -392,27 +434,27 @@ code {
 
 /* --------------- STYLE FOR TRAILER --------------- */
 .setPlay {
-  position: relative;
-  top: 320px;
-  left: 400%;
+  position: absolute;
+  top: 800px;
+  left: 22%;
   width: 50px;
   transition: transform .4s ease .1s;
 }
 
+@media screen and (min-width: 955px) {
+  .setPlay {
+    position: relative;
+    top: 380px;
+    left: 430%;
+  }
+}
+
 @media screen and (max-width: 840px) {
   .setPlay {
-    top: 450px;
-    left: 700%;
+    top: 905px;
+    left: 50%;
   }
 }
-
-@media screen and (max-width: 640px) {
-  .setPlay {
-    top: 450px;
-    left: 500%;
-  }
-}
-
 
 .playTrailerBtn,
 .youtubeCloseBtn {
@@ -433,11 +475,15 @@ code {
 
 @media screen and (min-width: 840px) {
   .youtubeTrailer {
-    position: absolute;
     top: 82%;
   }
 }
 
+@media screen and (min-width: 955px) {
+  .youtubeTrailer {
+    top: 85%;
+  }
+}
 
 .youtubeCloseBtn {
   position: absolute;

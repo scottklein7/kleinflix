@@ -3,10 +3,11 @@ import axios from '../axios';
 import ShowCast from './ShowCast';
 import Trailer from './Trailer';
 import { IoStarSharp } from 'react-icons/io5';
+import AddToFavorites from './AddToFavorites';
 
 
 export default function ShowContent(props) {
-    const { backgroundUrl, posterUrl, media, id } = props
+    const { backgroundUrl, posterUrl, media, id, createFavorite } = props
 
     const [movie, setMovie] = useState(null);
     const [trailerId, setTrailerId] = useState(null);
@@ -28,6 +29,7 @@ export default function ShowContent(props) {
         getMovie()
     }, [API_KEY, id, media]);
 
+
     return (
         <div className='backgroundDiv' style={{ color: '#10B174', background: `url(${backgroundUrl}${movie?.backdrop_path})` }}>
             {media === 'movie' ?
@@ -44,6 +46,12 @@ export default function ShowContent(props) {
                             <div className="showMovieRatingDiv">
                                 <img src="http://www.userlogos.org/files/logos/jumpordie/imdb-iphone.png" alt="imbdrating" style={{ width: '4.6em' }} />
                                 <span>{movie?.vote_average}<IoStarSharp style={{ color: 'gold' }} /></span><br />
+                            </div>
+                            <div className="showMovieAddToFav">
+                                <AddToFavorites
+                                    createFavorite={createFavorite}
+                                    movie={movie}
+                                    media={media} />
                             </div>
                             <h1>{movie?.title || movie?.original_title || movie?.original_name}</h1><br />
                             <div className="showMovieOverview">

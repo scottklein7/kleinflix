@@ -1,7 +1,7 @@
-import {React, useState} from 'react';
+import {React, useState, useEffect} from 'react';
 
 function AddToFavorites({movie, media, createFavorite}) {
-    const id = movie.id
+    const id = movie?.id
     const [addFavorite] = useState({
         movieID: id,
         media: media,
@@ -11,9 +11,8 @@ function AddToFavorites({movie, media, createFavorite}) {
         overview: movie?.overview
     });
 
-
     return (
-            <button className='addToFavBtn' onClick={() => createFavorite(addFavorite)} >
+            <button className='addToFavBtn' onClick={() => console.log(movie)} >
                 <img src={'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Ficons.iconarchive.com%2Ficons%2Fcustom-icon-design%2Fflatastic-1%2F512%2Fadd-1-icon.png&f=1&nofb=1'} alt="addtolistlogo"
                     style={{ width: '1.2em' }} />
             </button>
