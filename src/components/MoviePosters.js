@@ -1,9 +1,10 @@
-import React from 'react';
+import {React} from 'react';
 import { IoStarSharp } from 'react-icons/io5';
 import { Link } from 'react-router-dom'
 import AddToFavorites from './AddToFavorites';
 
 function MoviePosters(props) {
+
 
     const { movie, base_url, truncateOverview, sectionTitle, media, createFavorite } = props
 

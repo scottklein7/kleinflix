@@ -20,7 +20,7 @@ function FavoritesComp(props) {
                     </div>
                 </div>
             </header>
-            
+
             <div className='contentMainContainerSearch'>
                 {favorites.map((movie) => (
                     <Link key={movie.movieID} to={{ pathname: `/show/${movie.movieID}`, state: { media } }}>

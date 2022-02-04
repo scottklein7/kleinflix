@@ -3,7 +3,7 @@ import axios from '../axios';
 import ShowCast from './ShowCast';
 import Trailer from './Trailer';
 import { IoStarSharp } from 'react-icons/io5';
-import AddToFavorites from './AddToFavorites';
+import ShowAddToFav from './ShowAddToFav.js';
 
 
 export default function ShowContent(props) {
@@ -48,10 +48,7 @@ export default function ShowContent(props) {
                                 <span>{movie?.vote_average}<IoStarSharp style={{ color: 'gold' }} /></span><br />
                             </div>
                             <div className="showMovieAddToFav">
-                                <AddToFavorites
-                                    createFavorite={createFavorite}
-                                    movie={movie}
-                                    media={media} />
+                                <ShowAddToFav createFavorite={createFavorite} media={media} movie={movie} />
                             </div>
                             <h1>{movie?.title || movie?.original_title || movie?.original_name}</h1><br />
                             <div className="showMovieOverview">
@@ -84,6 +81,9 @@ export default function ShowContent(props) {
                                 <img src="http://www.userlogos.org/files/logos/jumpordie/imdb-iphone.png" alt="imbdrating" style={{ width: '4.6em' }} />
                                 <span>{movie?.vote_average}<IoStarSharp style={{ color: 'gold' }} /></span><br />
                             </div>
+                            <div className="showMovieAddToFav">
+                                <ShowAddToFav createFavorite={createFavorite} media={media} movie={movie} />
+                            </div>
                             <h1>{movie?.title || movie?.original_title || movie?.original_name}</h1><br />
                             <p style={{ fontSize: '11px' }}>{movie?.overview}</p><br />
                             <span><b>Episode Runtime</b>: {movie?.episode_run_time} Minutes</span><br />
@@ -109,4 +109,3 @@ export default function ShowContent(props) {
     )
 
 }
-

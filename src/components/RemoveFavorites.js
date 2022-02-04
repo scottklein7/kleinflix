@@ -1,7 +1,7 @@
 import React from 'react';
 
-function RemoveFavorites({id, deleteFavorites}) {
-   
+function RemoveFavorites({ id, deleteFavorites }) {
+
 
     return (
         <button className='addToFavBtn' onClick={() => deleteFavorites(id)} >

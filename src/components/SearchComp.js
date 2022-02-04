@@ -89,10 +89,7 @@ function SearchComp(props) {
                 </div>
                 <h2 className='moviePosterTitle'>{movie?.title || movie?.original_title || movie?.original_name}</h2>
                 <p style={{ fontSize: '7.5px' }}>{truncateOverview(movie?.overview, 150)}</p>
-                {/* <div className='addToFavDiv'>
-                  <AddToFavorites movie={movie} media={media} createFavorite={createFavorite} />
-                  <span className='addToFavSpan'>Add to favorites</span>
-                </div> */}
+                
               </div>
             </div>
           </Link>
